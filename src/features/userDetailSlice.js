@@ -1,7 +1,10 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from 'axios'
 
-// create action
+
+// ****************************called as Action**************************************
+
+// create user 
 export const createUser = createAsyncThunk("createUser", async (data, { rejectWithValue }) => {
 
     const response = await fetch('https://6579af021acd268f9af9bb9b.mockapi.io/crud', {
@@ -20,6 +23,18 @@ export const createUser = createAsyncThunk("createUser", async (data, { rejectWi
     }
 
 });
+
+//Show Register User
+
+
+export const showUser = createAsyncThunk("showUser", async (_, { rejectWithValue }) => {
+    try {
+        const response = await axios.get('https://6579af021acd268f9af9bb9b.mockapi.io/crud');
+        return response.data;
+    } catch (error) {
+        return rejectWithValue(error);
+    }
+})
 
 // show general news 
 export const showNews = createAsyncThunk("showNews", async (_, { rejectWithValue }) => {
@@ -105,6 +120,18 @@ export const newsDeatil = createSlice({
                 state.error = action.payload;
             })
 
+            // handle promise Registerd User
+            .addCase(showUser.pending, (state) => {
+                state.loading = true;
+            })
+            .addCase(showUser.fulfilled, (state, action) => {
+                state.loading = false;
+                state.users = action.payload;
+            })
+            .addCase(showUser.rejected, (state, action) => {
+                state.loading = false;
+                state.error = action.payload;
+            })
 
             // handle promise show general news
 

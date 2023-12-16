@@ -3,11 +3,13 @@ import './create.css'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { createUser } from '../features/userDetailSlice'
+import { useNavigate } from 'react-router-dom'
 
 function Create() {
 
     const [users, setUsers] = useState({})
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
 
     const getUserData = (e) => {
@@ -19,13 +21,12 @@ function Create() {
         e.preventDefault()
         console.log("users...", users);
         dispatch(createUser(users))
-
+        navigate("/registeredUser")
     }
 
 
     return (
         <>
-
             <div className="container mx-auto my-2">
                 <form className='form' onSubmit={handleSubmit} >
                     <center><h2 className='font-bold my-3'>Register form</h2></center>

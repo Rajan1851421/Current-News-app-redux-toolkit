@@ -7,29 +7,31 @@ function App() {
     const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     return (
-        <>      
-           
+        <>
+
 
             {/* Navbar */}
-            <nav className="p-4 px-8  bg-gray-300">
+            <nav className="p-4 px-8  bg-gray-300 sticky top-0 z-10">
                 <div className="container mx-auto flex justify-between items-center">
 
                     {/* Logo */}
                     <div className="flex items-center">
                         <img className="h-10 w-auto mr-2 rounded-full" src="https://avatars.githubusercontent.com/u/105105537?v=4" alt="Logo" />
-                        <span className="text-lg font-semibold"><img className='h-10 w-auto' 
-                        src="                        https://p7.hiclipart.com/preview/817/265/197/headline-newspaper-nigeria-breaking-news-others-thumbnail.jpg
+                        <span className="text-lg font-semibold"><img className='h-10 w-auto'
+                            src="                        https://p7.hiclipart.com/preview/817/265/197/headline-newspaper-nigeria-breaking-news-others-thumbnail.jpg
                         " alt="News" /></span>
                     </div>
 
                     {/* Navigation Links */}
-                    <div className="hidden md:flex space-x-10 ">
-                        <Link to="/Form" className="font-bold hover:text-blue-900  hover:border-b ">Form</Link>
-                        <Link to="/" className="font-bold hover:text-blue-900  hover:border-b ">General</Link>
-                        <Link to="health" className="font-bold hover:text-blue-900  hover:border-b ">Health</Link>
-                        <Link to="/sport" className="font-bold hover:text-blue-900  hover:border-b ">Sports</Link>
-                        <Link to="/business" className="font-bold hover:text-blue-900  hover:border-b ">Business</Link>
-                        <Link to="/technology" className="font-bold hover:text-blue-900  hover:border-b ">Technology</Link>
+                    <div className="hidden md:flex space-x-10  ">
+                        <Link to="/" className="font-bold hover:text-blue-900  hover:border-b"><i class="fa-solid fa-house-chimney-window mx-1 text-blue-900"></i>Home</Link>
+                        <Link to="/general" className="font-bold hover:text-blue-900  hover:border-b "><i class="fa-solid fa-face-meh-blank mx-1 text-red-700"></i>General</Link>
+                        <Link to="health" className="font-bold hover:text-blue-900  hover:border-b "><i class="fa-solid fa-briefcase-medical mx-1 text-orange-900"></i>Health</Link>
+                        <Link to="/sport" className="font-bold hover:text-blue-900  hover:border-b "><i class="fa-solid fa-volleyball mx-1 text-[#84cc16]"></i>Sports</Link>
+                        <Link to="/business" className="font-bold hover:text-blue-900  hover:border-b"> <i class="fa-solid fa-business-time mx-1 text-[#86198f]"></i>Business</Link>
+                        <Link to="/technology" className="font-bold hover:text-blue-900  hover:border-b "><i class="fa-solid fa-gears mx-1 text-[#1d4ed8] "></i>Technology</Link>
+                        <Link to="/about" className="font-bold hover:text-blue-900  hover:border-b "><i class="fa-solid fa-address-card mx-1 text-[#b91c1c] "></i>AboutUs</Link>
+                        <Link to="/register" className="font-bold hover:text-blue-900  hover:border-b "><i class="fa-solid fa-user mx-1 text-yellow-500"></i>Register</Link>
                     </div>
 
                     {/* Mobile Menu Button */}
@@ -45,12 +47,14 @@ function App() {
             {/* Mobile Menu (Hidden by default) */}
             {isMobileMenuOpen && (
                 <div className="md:hidden bg-gray-800 text-white p-4">
-                    <Link to="/Form" className="block font-bold hover:text-blue-900  py-2">Form</Link>
-                    <Link to="/" className="block font-bold hover:text-blue-900  py-2">General</Link>
-                    <Link to="/health" className="block font-bold hover:text-blue-900  py-2">Health</Link>
-                    <Link to="/sport" className="block font-bold hover:text-blue-900  py-2">Sports</Link>
-                    <Link to="/business" className="block font-bold hover:text-blue-900  py-2">Business</Link>
-                    <Link to="/technology" className="block font-bold hover:text-blue-900  py-2">Technology</Link>
+                    <Link to="/" className="block font-bold hover:text-blue-900  py-2"><i class="fa-solid fa-house-chimney-window mx-1 text-blue-900"></i>Home</Link>
+                    <Link to="/general" className="block font-bold hover:text-blue-900  py-2"><i class="fa-solid fa-face-meh-blank mx-1 text-red-700"></i>General</Link>
+                    <Link to="/health" className="block font-bold hover:text-blue-900  py-2"><i class="fa-solid fa-briefcase-medical mx-1 text-orange-900"></i>Health</Link>
+                    <Link to="/sport" className="block font-bold hover:text-blue-900  py-2"><i class="fa-solid fa-volleyball mx-1 text-[#84cc16]"></i>Sports</Link>
+                    <Link to="/business" className="block font-bold hover:text-blue-900  py-2"><i class="fa-solid fa-business-time mx-1 text-[#86198f]"></i>Business</Link>
+                    <Link to="/technology" className="block font-bold hover:text-blue-900  py-2"><i class="fa-solid fa-gears mx-1 text-[#1d4ed8] "></i>Technology</Link>
+                    <Link to="/about" className="block font-bold hover:text-blue-900  py-2"><i class="fa-solid fa-address-card mx-1 text-[#b91c1c] "></i>AboutUS</Link>
+                    <Link to="/register" className="block font-bold hover:text-blue-900  py-2"><i class="fa-solid fa-user mx-1 text-yellow-500"></i>Register</Link>
                 </div>
             )}
 
