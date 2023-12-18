@@ -9,6 +9,7 @@ function RegisteredUser() {
 
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         dispatch(showUser())
 
     }, []);

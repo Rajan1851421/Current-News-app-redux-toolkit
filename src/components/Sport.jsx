@@ -9,6 +9,7 @@ function Sport() {
     const {users,loading}= useSelector((state) => state.app)
 
     useEffect(()=>{
+        window.scrollTo(0, 0);
         dispatch(showSportsNews())
     },[dispatch])
 if(loading){

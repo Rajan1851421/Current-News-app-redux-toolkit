@@ -6,6 +6,7 @@ function Technology() {
   const dispatch = useDispatch()
   const { users, loading } = useSelector((state) => state.app)
   useState(() => {
+    window.scrollTo(0, 0);
     dispatch(showTechnologyNews())
   }, [dispatch])
 

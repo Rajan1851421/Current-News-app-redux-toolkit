@@ -6,12 +6,18 @@ import { Link } from 'react-router-dom';
 function App() {
     const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+    // const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+    const closeMobileMenu = () => {
+        setMobileMenuOpen(false);
+    };
+
     return (
         <>
 
 
             {/* Navbar */}
-            <nav className="p-4 px-8  bg-gray-300 sticky top-0 z-10">
+            <nav className="p-4 px-8  bg-gray-300 sticky top-0 z-50">
                 <div className="container mx-auto flex justify-between items-center">
 
                     {/* Logo */}
@@ -47,7 +53,7 @@ function App() {
             {/* Mobile Menu (Hidden by default) */}
             {isMobileMenuOpen && (
                 <div className="md:hidden bg-gray-800 text-white p-4">
-                    <Link to="/" className="block font-bold hover:text-blue-900  py-2"><i class="fa-solid fa-house-chimney-window mx-1 text-blue-900"></i>Home</Link>
+                    <Link to="/" className="block font-bold hover:text-blue-900  py-2"><i class="fa-solid fa-house-chimney-window mx-1 text-blue-900"  onClick={closeMobileMenu}></i>Home</Link>
                     <Link to="/general" className="block font-bold hover:text-blue-900  py-2"><i class="fa-solid fa-face-meh-blank mx-1 text-red-700"></i>General</Link>
                     <Link to="/health" className="block font-bold hover:text-blue-900  py-2"><i class="fa-solid fa-briefcase-medical mx-1 text-orange-900"></i>Health</Link>
                     <Link to="/sport" className="block font-bold hover:text-blue-900  py-2"><i class="fa-solid fa-volleyball mx-1 text-[#84cc16]"></i>Sports</Link>
