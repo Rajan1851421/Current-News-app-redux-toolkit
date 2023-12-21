@@ -42,31 +42,31 @@ function AboutUs() {
       <div className="container mx-auto p-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-20">
           {/* Card 1 */}
-          <div className="bg-[#fecdd3] p-6 rounded-lg shadow-md cursor-pointer hover:scale-90 hover:ease-in hover:duration-200  hover:rotate-2">
+          <Link to='/' className="bg-[#fecdd3] p-6 rounded-lg shadow-md cursor-pointer hover:scale-90 hover:ease-in hover:duration-200  hover:rotate-2">
             <img className='sm:rounded-full md:rounded-sm lg:rounded-full' src="https://avatars.githubusercontent.com/u/105105537?v=4" alt="" />
             <p className="text-gray-600 text-center">
               Rajan Prajapati is a talented front-end developer
               with a passion for crafting engaging and user-friendly web experiences.
             </p>
-          </div>
+          </Link>
 
           {/* Card 2 */}
-          <div className="bg-[#e879f9] p-6 rounded-lg shadow-md cursor-pointer hover:scale-90 hover:duration-200 hover:ease-in  hover:rotate-2">
+          <Link to='/' className="bg-[#e879f9] p-6 rounded-lg shadow-md cursor-pointer hover:scale-90 hover:duration-200 hover:ease-in  hover:rotate-2">
             <img className='sm:rounded-full md:rounded-sm lg:rounded-full' src="https://avatars.githubusercontent.com/u/105105537?v=4" alt="" />
             <p className="text-gray-600 text-center">
               Rajan Prajapati is a talented front-end developer
               with a passion for crafting engaging and user-friendly web experiences.
             </p>
-          </div>
+          </Link>
 
           {/* Card 3 */}
-          <div className="bg-[#bae6fd] p-6 rounded-lg shadow-md cursor-pointer hover:scale-90 hover:duration-200 hover:ease-in  hover:rotate-2">
+          <Link to='/' className="bg-[#bae6fd] p-6 rounded-lg shadow-md cursor-pointer hover:scale-90 hover:duration-200 hover:ease-in  hover:rotate-2">
             <img className='sm:rounded-full md:rounded-sm lg:rounded-full' src="https://avatars.githubusercontent.com/u/105105537?v=4" alt="" />
             <p className="text-gray-600 text-center">
               Rajan Prajapati is a talented front-end developer
               with a passion for crafting engaging and user-friendly web experiences.
             </p>
-          </div>
+          </Link>
         </div>
       </div>
 

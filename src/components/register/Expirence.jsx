@@ -11,8 +11,10 @@ function Expirence() {
                     <ul className='list-disc font-bold text-gray-800'>Front End developer, West Bengal
                         6 Months internship I did at React Js Technology from September 2022 to March 2023.
                     </ul>
-                    <ol>1</ol>
-                    <ol>1</ol>
+                    <ul className=' font-bold text-gray-800 no-select'>
+                        <li>I have completed FullStack Devloper course from <strong className='uppercase'>PW skills</strong> Apr 2023 - Oct 2023</li>
+                    </ul>
+
                 </div>
             </div>
 

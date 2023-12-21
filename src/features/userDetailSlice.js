@@ -36,6 +36,30 @@ export const showUser = createAsyncThunk("showUser", async (_, { rejectWithValue
     }
 })
 
+//Delete Register User
+
+export const deleteUser = createAsyncThunk("deleteUser", async (id, { rejectWithValue }) => {
+    try {
+        const response = await axios.delete(`https://6579af021acd268f9af9bb9b.mockapi.io/crud/${id}`);
+        return response.data;
+    } catch (error) {
+        return rejectWithValue(error);
+    }
+})
+
+// Update User 
+export const updateUser = createAsyncThunk("updateUser", async ({ id, updateData }, { rejectWithValue }) => {
+    try {
+        const response = await axios.put(`https://6579af021acd268f9af9bb9b.mockapi.io/crud/${id}`, updateData);
+        return response.data;
+    } catch (error) {
+        return rejectWithValue(error);
+    }
+});
+
+
+
+
 // show general news 
 export const showNews = createAsyncThunk("showNews", async (_, { rejectWithValue }) => {
     try {
@@ -118,6 +142,37 @@ export const newsDeatil = createSlice({
             .addCase(createUser.rejected, (state, action) => {
                 state.loading = false;
                 state.error = action.payload;
+            })
+            // handle promise delete User
+            .addCase(deleteUser.pending, (state) => {
+                state.loading = true;
+            })
+            .addCase(deleteUser.fulfilled, (state, action) => {
+                state.loading = false;
+                const { id } = action.payload;
+                if (id) {
+                    state.users = state.users.filter((ele) => ele.id !== id)
+                }
+            })
+            .addCase(deleteUser.rejected, (state, action) => {
+                state.loading = false;
+                state.error = action.payload;
+            })
+
+            //handle promise update user
+            .addCase(updateUser.pending, (state) => {
+                state.loading = true;
+                state.error = null; // Clear previous errors when making a new request
+            })
+            .addCase(updateUser.fulfilled, (state, action) => {
+                state.loading = false;
+                state.users = state.users.map((ele) =>
+                    ele.id === action.payload.id ? { ...ele, ...action.payload } : ele
+                );
+            })
+            .addCase(updateUser.rejected, (state, action) => {
+                state.loading = false;
+                state.error = action.error.message; // Use action.error for the error message
             })
 
             // handle promise Registerd User

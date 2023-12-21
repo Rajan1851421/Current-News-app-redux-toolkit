@@ -9,6 +9,8 @@ import Register from './Create'
 import Home from './Home'
 import AboutUs from './AboutUs'
 import RegisteredUser from './RegisteredUser'
+import Update from './Update'
+
 
 function Router() {
   return (
@@ -23,6 +25,7 @@ function Router() {
       <Route path='/technology' element={<Technology />} />
       <Route path='/about' element={<AboutUs />} />
       <Route path='/registeredUser' element={<RegisteredUser />} />
+      <Route path ='/edit/:id' element={<Update />} />
     </Routes>
 
   )

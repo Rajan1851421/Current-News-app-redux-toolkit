@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function Portfolio() {
     return (
-        <div className="container mx-auto p-4">
+        <div className="container mx-auto p-4 bg-[#A78BFA] my-3 rounded-lg  ">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="p-4">
                     {/* Your content for the frist part */}
@@ -21,16 +21,16 @@ function Portfolio() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div className="p-2">
                             <ul className="list-disc list-inside">
-                                <li>HTML5</li>
-                                <li>CSS3</li>
-                                <li>JavaScript</li>
+                                <li className='text-[#1D4ED8] font-medium '>HTML5</li>
+                                <li className='text-[#92400E] font-medium '>CSS3</li>
+                                <li className='text-[#9D174D] font-medium '>JavaScript</li>
                             </ul>
                         </div>
                         <div className="p-2">
                             <ul className="list-disc list-inside">
-                                <li>React JS</li>
-                                <li>Redux Toolkit</li>
-                                <li>Tailwind CSS, Bootstrap</li>
+                                <li className='font-medium text-[#111827] '>React JS</li>
+                                <li className='font-medium text-[#7F1D1D] '>Redux Toolkit</li>
+                                <li className='font-medium text-[#1D4ED8] '>Tailwind CSS, Bootstrap</li>
                             </ul>
                         </div>
                         <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4">Contact</h2>
