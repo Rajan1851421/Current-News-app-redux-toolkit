@@ -33,7 +33,7 @@ function Update() {
         // Optionally, navigate to another page after updating
         navigate('/registeredUser');
     };
-    
+
 
 
 
@@ -42,15 +42,16 @@ function Update() {
 
     return (
         <>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2  mt-[-40px] bg-white">
                 {/* First part */}
                 <div className="col-span-1 md:col-span-1 p-2">
                     <img
-                        className="max-w-full h-auto"
+                        className="max-w-full h-auto bg-block sm:hidden md:block lg:block"
                         src="https://img.freepik.com/free-vector/woman-using-software-cartoon-character-working-process-workflow-analysis-internet-platform-testing-female-programmer-professional-financial-analyst-vector-isolated-concept-metaphor-illustration_335657-2722.jpg?size=626&ext=jpg&ga=GA1.1.108132751.1702923772&semt=ais"
                         alt=""
                     />
                 </div>
+
 
                 {/* Second part */}
                 <div className="col-span-1 md:col-span-1 p-2 ">

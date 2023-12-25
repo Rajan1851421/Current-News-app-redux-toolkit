@@ -2,11 +2,11 @@ import React, { useState,useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { createUser } from '../features/userDetailSlice';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Create() {
    
-    const [users, setUsers] = useState({});
-    const [timeRemaining, setTimeRemaining] = useState(3); 
+    const [users, setUsers] = useState({});    
     const dispatch = useDispatch();
     const navigate = useNavigate();
     window.scrollTo(0, 0);
@@ -25,17 +25,15 @@ function Create() {
         
     }; 
    
-    
-        
 
     return (
         <>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 mt-[-40px] bg-white">
                 {/* First part */}
-                <div className="col-span-1 md:col-span-1 p-2">
+                <div className="col-span-1 md:col-span-1 p-2 ">
                     <img
-                        className="max-w-full h-auto"
-                        src="https://img.freepik.com/free-vector/user-verification-unauthorized-access-prevention-private-account-authentication-cyber-security-people-entering-login-password-safety-measures_335657-1592.jpg?size=626&ext=jpg&ga=GA1.1.108132751.1702923772&semt=ais"
+                        className=" sm:display-none bg-transparent mx-auto h-[400px] mt-20"
+                        src="https://img.freepik.com/free-vector/forms-concept-illustration_114360-4947.jpg?w=740&t=st=1703338337~exp=1703338937~hmac=1ee7fae8d224475a6ead3dd022a1ec756a7969c33d7b9c4c31eb5c08a661c29e"
                         alt=""
                     />
                 </div>
@@ -94,6 +92,7 @@ function Create() {
                                     type="submit"
                                     className="w-full text-center mt-2 py-3 rounded bg-green-600 text-white hover:bg-green-dark focus:outline-none my-1"
                                 >Register</button>
+                                <Link to='/registeredUser'>Registered User</Link>
 
 
                             </div>

@@ -1,18 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
 
-  
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+body {
+  background: rgb(186, 162, 186);
+  background: radial-gradient(circle, rgba(186, 162, 186, 0.6558998599439776) 26%, rgba(140, 201, 104, 0.45702030812324934) 49%, rgba(207, 165, 145, 0.34217436974789917) 90%);
 }
-
-
-

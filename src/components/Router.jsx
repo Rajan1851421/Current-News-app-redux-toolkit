@@ -1,31 +1,27 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-import General from './General'
-import Sport from './Sport'
-import Health from './Health'
-import Business from './Business'
-import Technology from './Technology'
-import Register from './Create'
+import News from './News'
 import Home from './Home'
 import AboutUs from './AboutUs'
 import RegisteredUser from './RegisteredUser'
 import Update from './Update'
+import Create from './Create'
+import FullNews from './FullNews'
+import Calculator from './Calculator'
 
 
 function Router() {
   return (
 
     <Routes>
-      <Route path='/' element={<Home />} />
-      <Route path='/general' element={<General />} />
-      <Route path='/register' element={<Register />} />
-      <Route path='/sport' element={<Sport />} />
-      <Route path='/health' element={<Health />} />
-      <Route path='/business' element={<Business />} />
-      <Route path='/technology' element={<Technology />} />
+      <Route path='/' element={<Home />} />  
+      <Route path='/register' element={<Create/>}/>    
+      <Route path='/news' element={<News />} />
       <Route path='/about' element={<AboutUs />} />
       <Route path='/registeredUser' element={<RegisteredUser />} />
       <Route path ='/edit/:id' element={<Update />} />
+      <Route path='/detail/:id' element ={<FullNews/> }/>
+      <Route path='/calculator' element={<Calculator/>}/>
     </Routes>
 
   )

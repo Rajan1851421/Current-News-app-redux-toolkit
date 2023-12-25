@@ -1,20 +1,21 @@
 import React, { useEffect } from 'react';
 import Protofolio from './register/Protofolio';
 import Expirence from './register/Expirence';
-import Projects from './register/Projects';
-import ExtraAchievement from './register/ExtraAchievement';
+import Reactjs from './register/React';
+import ReduxToolkit from './register/ReduxToolkit';
+
 
 
 function Home() {
-  
+
   window.scrollTo(0, 0);
- 
+
   return (
     <>
       <Protofolio />
-      <Expirence/>
-      <Projects/>
-      <ExtraAchievement/>
+      <Expirence />
+      <Reactjs />
+      <ReduxToolkit />
     </>
   );
 }

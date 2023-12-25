@@ -57,67 +57,31 @@ export const updateUser = createAsyncThunk("updateUser", async ({ id, updateData
     }
 });
 
-
-
-
-// show general news 
 export const showNews = createAsyncThunk("showNews", async (_, { rejectWithValue }) => {
     try {
-        const response = await axios.get('https://newsapi.org/v2/top-headlines?country=in&category=general&apiKey=9b7571cb6cc94c6a897fda39db74b3bc');
-        return response.data; // Use response.data to get the actual data
-    } catch (error) {
-        // Use rejectWithValue to handle the rejected action with a specific payload
-        return rejectWithValue(error.response.data);
-    }
-});
-
-// show health news
-
-export const showHelathNews = createAsyncThunk("showHelathNews", async (_, { rejectWithValue }) => {
-    try {
-        const response = await axios.get('https://newsapi.org/v2/top-headlines?country=in&category=health&apiKey=9b7571cb6cc94c6a897fda39db74b3bc')
-        return response.data;
-    } catch (error) {
-        return rejectWithValue(error.response.data);
-    }
-})
-
-// show sports news
-
-export const showSportsNews = createAsyncThunk("showSportsNews", async (_, { rejectWithValue }) => {
-    try {
-
-        const response = await axios.get(`https://newsapi.org/v2/top-headlines?country=in&category=sports&apiKey=9b7571cb6cc94c6a897fda39db74b3bc`)
-        return response.data;
-    } catch (error) {
-        return rejectWithValue(error.response.data);
-    }
-})
-
-
-// show business news 
-
-export const showBusinessNews = createAsyncThunk("showBusinessNews", async (_, { rejectWithValue }) => {
-    try {
-        const response = await axios.get(`https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=9b7571cb6cc94c6a897fda39db74b3bc`)
+        const response = await axios.get(`https://backend-ekms.onrender.com/manual_news/get_post_social/`);
         return response.data;
     } catch (error) {
         return rejectWithValue(error);
-
     }
 })
 
-// show technology news
+// export const showTechnologyNews = createAsyncThunk("showTechnologyNews", async (_, { rejectWithValue }) => {
+//     try {
+//         const response = await axios.get(`http://hn.algolia.com/api/v1/search?query=react`);
+//         return response.data;
+//     } catch (error) {
+//         return rejectWithValue(error);
+//     }
+// })
 
-export const showTechnologyNews = createAsyncThunk("showTechnology", async (_, { rejectWithValue }) => {
-    try {
-        const response = await axios.get(`https://newsapi.org/v2/top-headlines?country=in&category=technology&apiKey=9b7571cb6cc94c6a897fda39db74b3bc`)
-        return response.data;
-    } catch (error) {
-        return rejectWithValue(error);
 
-    }
-})
+
+// search news 
+
+
+
+
 
 
 
@@ -187,15 +151,15 @@ export const newsDeatil = createSlice({
                 state.loading = false;
                 state.error = action.payload;
             })
+          
 
-            // handle promise show general news
-
-
-            .addCase(showNews.pending, (state) => {
+            //handle promise technology news
+            .addCase(showNews.pending, (state, action) => {
                 state.loading = true;
             })
             .addCase(showNews.fulfilled, (state, action) => {
                 state.loading = false;
+                console.log("ALOGOLIA::",action.payload);
                 state.users = action.payload;
             })
             .addCase(showNews.rejected, (state, action) => {
@@ -203,64 +167,7 @@ export const newsDeatil = createSlice({
                 state.error = action.payload;
             })
 
-
-            // handle promise show health news
-
-
-            .addCase(showHelathNews.pending, (state) => {
-                state.loading = true;
-            })
-            .addCase(showHelathNews.fulfilled, (state, action) => {
-                state.loading = false;
-                state.users = action.payload;
-            })
-            .addCase(showHelathNews.rejected, (state, action) => {
-                state.loading = false;
-                state.error = action.payload;
-            })
-
-            // handle promise show Sports news
-
-
-            .addCase(showSportsNews.pending, (state) => {
-                state.loading = true;
-            })
-            .addCase(showSportsNews.fulfilled, (state, action) => {
-                state.loading = false;
-                state.users = action.payload;
-            })
-            .addCase(showSportsNews.rejected, (state, action) => {
-                state.loading = false;
-                state.error = action.payload;
-            })
-
-
-            // handle promise Business news
-
-            .addCase(showBusinessNews.pending, (state) => {
-                state.loading = true;
-            })
-            .addCase(showBusinessNews.fulfilled, (state, action) => {
-                state.loading = false;
-                state.users = action.payload;
-            })
-            .addCase(showBusinessNews.rejected, (state, action) => {
-                state.loading = false;
-                state.error = action.payload;
-            })
-
-            //handle promise technology news
-            .addCase(showTechnologyNews.pending, (state, action) => {
-                state.loading = true;
-            })
-            .addCase(showTechnologyNews.fulfilled, (state, action) => {
-                state.loading = false;
-                state.users = action.payload;
-            })
-            .addCase(showTechnologyNews.rejected, (state, action) => {
-                state.loading = false;
-                state.error = action.payload;
-            })
+           
     },
 });
 
