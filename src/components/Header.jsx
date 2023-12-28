@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 
 
+
 function App() {
 
     const Allusers = useSelector((state) => state.app.users)
@@ -38,20 +39,21 @@ function App() {
 
                     {/* Logo */}
                     <div className="flex items-center">
-                        <img className="h-10 w-auto mr-2 rounded-full" src="https://avatars.githubusercontent.com/u/105105537?v=4" alt="Logo" />
+                        <img className="h-10 w-auto mr-2 rounded-full" 
+                        src="https://avatars.githubusercontent.com/u/105105537?v=4" alt="Logo" />
                         <span className="text-lg font-semibold"><img className='h-10 w-auto'
-                            src="                        https://p7.hiclipart.com/preview/817/265/197/headline-newspaper-nigeria-breaking-news-others-thumbnail.jpg
-                        " alt="News" />
+                            src="https://img.icons8.com/?size=80&id=0hL1XXinNxFc&format=png" alt="News" />
 
                         </span>
-                        <span>{(currentDateTime.toLocaleString())}</span>
+                        <span className='ml-8 font-normal p-3 text-gray-400 '>{(currentDateTime.toLocaleString())}</span>
 
                     </div>
 
                     {/* Navigation Links */}
                     <div className="hidden md:flex space-x-10  ">
                         <Link to="/" className="font-bold hover:text-blue-900 hover:skew-x-12  hover:border-b"><i class="fa-solid fa-house-chimney-window mx-1 text-blue-900"></i>Home</Link>
-                        <Link to="/news" className="font-bold hover:text-blue-900 hover:skew-x-12 hover:border-b "><i class="fa-solid fa-gears mx-1 text-[#1d4ed8] "></i>News</Link>
+                        <Link to="/news" className="font-bold hover:text-blue-900 hover:skew-x-12 hover:border-b "><i class="fa-regular fa-newspaper mx-1 text-[#3730A3] "></i>News</Link>
+                        <Link to="/resume" className="font-bold hover:text-blue-900 hover:skew-x-12 hover:border-b "><i class="fa-solid fa-pen text-[#4C1D95] mx-1 "></i>Resume</Link>
                         <Link to="/calculator" className="font-bold hover:text-blue-900 hover:skew-x-12 hover:border-b "><i class="fa-solid fa-calculator text-red-600 mx-1 "></i>Calculator</Link>
 
                         <Link to="/about" className="font-bold hover:text-blue-900 hover:skew-x-12 hover:border-b "><i class="fa-solid fa-address-card mx-1 text-[#b91c1c] "></i>AboutUs</Link>
@@ -75,8 +77,9 @@ function App() {
             {/* Mobile Menu (Hidden by default) */}
             {isMobileMenuOpen && (
                 <div className="md:hidden bg-gray-800 text-white p-4 absolute top-14 left-0 w-full z-1500  sticky top-15">
-                    <Link to="/" onClick={closeMobileMenu} className="block font-bold hover:text-blue-900  py-2"><i class="fa-solid fa-house-chimney-window mx-1 text-blue-900" onClick={closeMobileMenu}></i>Home</Link>
-                    <Link to="/news" onClick={closeMobileMenu} className="block font-bold hover:text-blue-900  py-2"><i class="fa-solid fa-gears mx-1 text-[#1d4ed8] "></i>News</Link>
+                    <Link to="/" onClick={closeMobileMenu} className="block font-bold hover:text-blue-900  py-2"><i class="fa-solid fa-house-chimney-window mx-1 text-blue-900" ></i>Home</Link>
+                    <Link to="/resume" onClick={closeMobileMenu} className="block font-bold hover:text-blue-900  py-2"><i class="fa-solid fa-pen text-[#4C1D95] mx-1 "></i>Resume</Link>
+                    <Link to="/news" onClick={closeMobileMenu} className="block font-bold hover:text-blue-900  py-2"><i class="fa-regular fa-newspaper mx-1 text-[#3730A3] "></i>News</Link>
                     <Link to="/calculator" onClick={closeMobileMenu} className="block font-bold hover:text-blue-900  py-2"><i class="fa-solid fa-calculator text-red-600 mx-1 "></i>Calculator</Link>
                     <Link to="/about" onClick={closeMobileMenu} className="block font-bold hover:text-blue-900  py-2"><i class="fa-solid fa-address-card mx-1 text-[#b91c1c] "></i>AboutUS</Link>
                     <Link to="/register" onClick={closeMobileMenu} className="block font-bold hover:text-blue-900  py-2"><i class="fa-solid fa-user mx-1 text-yellow-500"></i>Register {Allusers.length} </Link>

@@ -52,10 +52,19 @@ function FullNews() {
             </button>
           </div>
         </div>
+        {/* <iframe src={`${url}${singleNews[0].upload_video}`} frameborder="0"></iframe> */}
 
 
       </section>
       {/* <!-- Section: Design Block --> */}
+      <video
+        src={`${url}${singleNews[0].upload_video}`}
+        autoPlay
+        className='mx-auto w-11/12 md:w-[50%] h-auto rounded-lg p-5 md:h-25'
+        controls
+      ></video>
+
+
     </div>
   )
 }

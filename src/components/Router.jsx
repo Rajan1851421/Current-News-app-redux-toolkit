@@ -8,6 +8,7 @@ import Update from './Update'
 import Create from './Create'
 import FullNews from './FullNews'
 import Calculator from './Calculator'
+import Main from './Resume/Main'
 
 
 function Router() {
@@ -22,6 +23,7 @@ function Router() {
       <Route path ='/edit/:id' element={<Update />} />
       <Route path='/detail/:id' element ={<FullNews/> }/>
       <Route path='/calculator' element={<Calculator/>}/>
+      <Route path='/resume' element={<Main/>}/>
     </Routes>
 
   )
