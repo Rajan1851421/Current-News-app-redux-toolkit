@@ -8,6 +8,12 @@ import { Link } from 'react-router-dom';
 
 function App() {
 
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+    const toggleDropdown = () => {
+        setIsDropdownOpen(!isDropdownOpen);
+    };
+
     const Allusers = useSelector((state) => state.app.users)
     const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [currentDateTime, setCurrentDateTime] = useState(new Date());
@@ -39,8 +45,8 @@ function App() {
 
                     {/* Logo */}
                     <div className="flex items-center">
-                        <img className="h-10 w-auto mr-2 rounded-full" 
-                        src="https://avatars.githubusercontent.com/u/105105537?v=4" alt="Logo" />
+                        <img className="h-10 w-auto mr-2 rounded-full"
+                            src="https://avatars.githubusercontent.com/u/105105537?v=4" alt="Logo" />
                         <span className="text-lg font-semibold"><img className='h-10 w-auto'
                             src="https://img.icons8.com/?size=80&id=0hL1XXinNxFc&format=png" alt="News" />
 
@@ -50,14 +56,40 @@ function App() {
                     </div>
 
                     {/* Navigation Links */}
-                    <div className="hidden md:flex space-x-10  ">
-                        <Link to="/" className="font-bold hover:text-blue-900 hover:skew-x-12  hover:border-b"><i class="fa-solid fa-house-chimney-window mx-1 text-blue-900"></i>Home</Link>
-                        <Link to="/news" className="font-bold hover:text-blue-900 hover:skew-x-12 hover:border-b "><i class="fa-regular fa-newspaper mx-1 text-[#3730A3] "></i>News</Link>
-                        <Link to="/resume" className="font-bold hover:text-blue-900 hover:skew-x-12 hover:border-b "><i class="fa-solid fa-pen text-[#4C1D95] mx-1 "></i>Resume</Link>
-                        <Link to="/calculator" className="font-bold hover:text-blue-900 hover:skew-x-12 hover:border-b "><i class="fa-solid fa-calculator text-red-600 mx-1 "></i>Calculator</Link>
+                    <div className="hidden md:flex space-x-10 relative">
+                        <Link to="/" className="font-bold hover:text-blue-900  hover:border-b">
+                            <i className="fa-solid fa-house-chimney-window mx-1 text-blue-900"></i>Home
+                        </Link>
+                        <Link to="/news" className="font-bold hover:text-blue-900 hover:border-b ">
+                            <i className="fa-regular fa-newspaper mx-1 text-[#3730A3] "></i>News
+                        </Link>
+                        <Link to="/resume" className="font-bold hover:text-blue-900 hover:border-b ">
+                            <i className="fa-solid fa-pen text-[#4C1D95] mx-1 "></i>Resume
+                        </Link>
 
-                        <Link to="/about" className="font-bold hover:text-blue-900 hover:skew-x-12 hover:border-b "><i class="fa-solid fa-address-card mx-1 text-[#b91c1c] "></i>AboutUs</Link>
-                        <Link to="/register" className="inline-flex items-center font-bold hover:text-blue-900 hover:skew-x-12 hover:border-b">
+
+                        <Link
+                            to="#"
+                            onClick={toggleDropdown}
+                            className="font-bold hover:border-b relative" >
+                            <i className="fa-solid fa-calculator text-red-600 mx-1 "></i>Calulator <i class="fa-solid fa-angle-down mx-1 "></i>
+                            {isDropdownOpen && (
+                                <div className="bg-gray-600 absolute mt-3 p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+                                    <Link to="/calculator" className="font-bold hover:text-white  hover:border-b ">
+                                        <i class="fa-solid fa-plus-minus mx-1 text-white"></i>Calculator
+                                    </Link> <br />
+                                    <Link to="/agecalculator" className="font-bold hover:text-white  hover:border-b ">
+                                        <i class="fa-solid fa-person-arrow-up-from-line mx-1 text-white"></i>Age Calculator
+                                    </Link>
+                                </div>
+                            )}
+                        </Link>
+                      
+
+                        <Link to="/about" className="font-bold hover:text-blue-900 hover:border-b ">
+                            <i className="fa-solid fa-address-card mx-1 text-[#b91c1c] "></i>AboutUs
+                        </Link>
+                        <Link to="/register" className="inline-flex items-center font-bold hover:text-blue-900 hover:border-b">
                             <i className="fas fa-user mx-1 text-yellow-500"></i>
                             Register
                             <span className="bg-red-700 text-white rounded-full  px-1 ml-1">{Allusers.length}</span>
@@ -79,8 +111,27 @@ function App() {
                 <div className="md:hidden bg-gray-800 text-white p-4 absolute top-14 left-0 w-full z-1500  sticky top-15">
                     <Link to="/" onClick={closeMobileMenu} className="block font-bold hover:text-blue-900  py-2"><i class="fa-solid fa-house-chimney-window mx-1 text-blue-900" ></i>Home</Link>
                     <Link to="/resume" onClick={closeMobileMenu} className="block font-bold hover:text-blue-900  py-2"><i class="fa-solid fa-pen text-[#4C1D95] mx-1 "></i>Resume</Link>
+                    <Link
+                        to="#"
+                        onClick={toggleDropdown}
+                        className="font-bold hover:text-blue-900 hover:border-b relative"
+                    >
+                        <i className="fa-solid fa-calculator text-red-600 mx-1 "></i>Calulator
+                        {isDropdownOpen && (
+                            <div className="absolute p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52 bg-white">
+                                <Link onClick={closeMobileMenu} to="/calculator" className="font-bold hover:text-blue-900  hover:border-b ">
+                                    <i className="fa-solid fa-calculator text-red-600 mx-1 my-2 "></i>Calculator
+                                </Link> <br />
+                                <Link onClick={closeMobileMenu} to="/agecalculator" className="font-bold hover:text-blue-900  hover:border-b ">
+                                    <i className="fa-solid fa-calculator text-red-600 mx-1 "></i>Age Calculator
+                                </Link>
+                            </div>
+                        )}
+                    </Link>
+
+
                     <Link to="/news" onClick={closeMobileMenu} className="block font-bold hover:text-blue-900  py-2"><i class="fa-regular fa-newspaper mx-1 text-[#3730A3] "></i>News</Link>
-                    <Link to="/calculator" onClick={closeMobileMenu} className="block font-bold hover:text-blue-900  py-2"><i class="fa-solid fa-calculator text-red-600 mx-1 "></i>Calculator</Link>
+                    {/* <Link to="/calculator" onClick={closeMobileMenu} className="block font-bold hover:text-blue-900  py-2"><i class="fa-solid fa-calculator text-red-600 mx-1 "></i>Calculator</Link> */}
                     <Link to="/about" onClick={closeMobileMenu} className="block font-bold hover:text-blue-900  py-2"><i class="fa-solid fa-address-card mx-1 text-[#b91c1c] "></i>AboutUS</Link>
                     <Link to="/register" onClick={closeMobileMenu} className="block font-bold hover:text-blue-900  py-2"><i class="fa-solid fa-user mx-1 text-yellow-500"></i>Register {Allusers.length} </Link>
                 </div>

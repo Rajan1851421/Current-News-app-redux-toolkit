@@ -10,6 +10,7 @@ export default function App() {
   return (
     <>
       <div className='h-screen'>
+        <p className='text-center'>Please wait for slow Loading...</p>
         <Lottie style={style} animationData={load} loop={true} />
       </div>
 

@@ -3,6 +3,7 @@ import Protofolio from './register/Protofolio';
 import Expirence from './register/Expirence';
 import Reactjs from './register/React';
 import ReduxToolkit from './register/ReduxToolkit';
+import Slider from './Slider';
 
 
 
@@ -16,6 +17,7 @@ function Home() {
       <Expirence />
       <Reactjs />
       <ReduxToolkit />
+      <Slider/>
     </>
   );
 }

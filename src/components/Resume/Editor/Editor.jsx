@@ -579,10 +579,10 @@ function Editor(props) {
         <div className="flex mx-auto sm:w-full md:w-full lg:w-full">
             <div className="flex  w-full">
                 <div className="w-full ">
-                    <div className="flex flex-col  ">
+                    <div className="flex flex-col mr-2 bg-transparent rounded-lg sm:bg-transparent md:bg-gray-200 lg:bg-gray-200  lg:w-1/2 md:1/2 sm:full lg:p-6 md:p-6 sm:p-1 ">
                         {Object.keys(sections)?.map((key) => (
                             <div
-                                className={`flex flex-row my-2 ${activeSectionKey === key ? "bg-blue-500 text-white p-3 rounded-lg" : ""
+                                className={`flex flex-row my-2 ${activeSectionKey === key ? " sm:w-full md:w-1/2 lg:w-1/2 bg-blue-500 text-white p-3 rounded-lg" : ""
                                     }`}
                                 key={key}
                                 onClick={() => setActiveSectionKey(key)}

@@ -9,6 +9,7 @@ import Create from './Create'
 import FullNews from './FullNews'
 import Calculator from './Calculator'
 import Main from './Resume/Main'
+import AgeCalculator from './AgeCalculator'
 
 
 function Router() {
@@ -24,6 +25,7 @@ function Router() {
       <Route path='/detail/:id' element ={<FullNews/> }/>
       <Route path='/calculator' element={<Calculator/>}/>
       <Route path='/resume' element={<Main/>}/>
+      <Route path='/ageCalculator' element={<AgeCalculator/>}/>
     </Routes>
 
   )
