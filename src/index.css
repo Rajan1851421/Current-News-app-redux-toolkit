@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 body {
-  background: rgba(33, 9, 139, 0.541);
-  /* background: radial-gradient(circle, rgba(186, 162, 186, 0.6558998599439776) 26%, rgba(140, 201, 104, 0.45702030812324934) 49%, rgba(207, 165, 145, 0.34217436974789917) 90%); */
+  /* Use the appropriate path to your image or provide the URL */
+  background-image: url('https://images.pexels.com/photos/301717/pexels-photo-301717.jpeg?auto=compress&cs=tinysrgb&w=600');
+  background-size: cover; /* Adjust as needed to cover the entire background */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Prevent the background image from repeating */
 }

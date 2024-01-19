@@ -23,7 +23,7 @@ function Portfolio() {
     return () => clearInterval(intervalId);
   }, [currentIndex]);
   return (
-    <div className="container mx-auto p-4 bg-[#b5a4e9] my-3 rounded-lg">
+    <div className="container mx-auto p-4 bg-[#eeeef0] my-3 rounded-lg">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="p-4">
           {/* Your content for the frist part */}

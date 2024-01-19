@@ -18,10 +18,6 @@ function News() {
     // dispatch(showTechnologyNews())
   }, [dispatch])
 
-
-
-
-
   if (loading) {
     return (
       <Loading/>
@@ -32,9 +28,6 @@ function News() {
     <>
       <h3 className='text-center lg:text-4xl md:text-3xl sm:text-4xl '>Latest News</h3>
       {users && users.map((ele) => (
-
-
-
         // <!-- Container for demo purpose -->
         <div className="container my-24 mx-auto md:px-6 ">
           {/* <!-- Section: Design Block --> */}

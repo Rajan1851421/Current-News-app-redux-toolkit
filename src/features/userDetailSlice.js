@@ -66,23 +66,6 @@ export const showNews = createAsyncThunk("showNews", async (_, { rejectWithValue
     }
 })
 
-// export const showTechnologyNews = createAsyncThunk("showTechnologyNews", async (_, { rejectWithValue }) => {
-//     try {
-//         const response = await axios.get(`http://hn.algolia.com/api/v1/search?query=react`);
-//         return response.data;
-//     } catch (error) {
-//         return rejectWithValue(error);
-//     }
-// })
-
-
-
-// search news 
-
-
-
-
-
 
 
 
