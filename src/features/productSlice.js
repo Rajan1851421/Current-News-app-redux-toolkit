@@ -28,39 +28,68 @@ export const cartRemoveProduct = createAsyncThunk("cartRemoveProduct", async (id
     }
 })
 
-// export const ConfirmAddress = createAsyncThunk("ConfirmAddress", async (address, { rejectWithValue }) => {
-//     try {
-//         const response = await axios.post(`https://6584af38022766bcb8c77edd.mockapi.io/news${address}`)
-//         return response.data;
-//     } catch (error) {
-//         return rejectWithValue(error);
-//     }
-// })
-export const ConfirmAddress = createAsyncThunk("ConfirmAddress", async (address, { rejectWithValue }) => {
-
-    const response = await fetch('https://6584af38022766bcb8c77edd.mockapi.io/news', {
-        method: 'POST',
-        headers: {
-            "Content-type": "application/json",
-        },
-        body: JSON.stringify(address)
-    });
-
+export const AddProduct = createAsyncThunk("AddProduct", async (formDataToSend, { rejectWithValue }) => {
     try {
-        const result = await response.json();
-        return result; // Assuming the API returns the created user data
+        const response = await axios.post(
+            'https://fakestoreapi.com/products',
+            formDataToSend,
+            {
+                headers: {
+                    "Content-type": "application/json",
+                },
+            }
+        );
+        return response.data; // Assuming the API returns the created user data
+    } catch (error) {
+        return rejectWithValue(error.response.data);
+    }
+
+})
+
+export const RemoveProduct = createAsyncThunk("RemoveProduct", async (id, { rejectWithValue }) => {
+    try {
+        const response = await axios.delete(`https://fakestoreapi.com/products/${id}`)
+        return response.data
     } catch (error) {
         return rejectWithValue(error);
     }
+})
 
-});
+export const HandleEdit = createAsyncThunk("HandleEdit", async ({ id, updateData }, { rejectWithValue }) => {
+    try {
+        const response = await axios.put(`https://fakestoreapi.com/products/${id}`, updateData)
+        return response.data
+    } catch (error) {
+        return rejectWithValue(error)
+    }
+})
+
+export const ConfirmAddress = createAsyncThunk("ConfirmAddress", async (address, { rejectWithValue }) => {
+    try {
+        const response = await axios.post(
+            'https://6584af38022766bcb8c77edd.mockapi.io/news',
+            address,
+            {
+                headers: {
+                    "Content-type": "application/json",
+                },
+            }
+        );
+        return response.data; // Assuming the API returns the created user data
+    } catch (error) {
+        return rejectWithValue(error.response.data);
+    }
+}
+);
 
 export const pruductDetails = createSlice({
     name: 'productdetails',
     initialState: {
         products: [],
-        address:[],
+        address: [],
+        successMessage: null,
         cart: [],
+        EditProductData: null,
         loading: false,
         error: null
     },
@@ -118,11 +147,57 @@ export const pruductDetails = createSlice({
             .addCase(ConfirmAddress.fulfilled, (state, action) => {
                 state.loading = false;
                 state.address = action.payload;
-                console.log("Address:",action.payload);
+                console.log("Address:", action.payload);
             })
             .addCase(ConfirmAddress.rejected, (state, action) => {
                 state.loading = false;
                 state.error = action.payload;
+            })
+
+            .addCase(AddProduct.pending, (state) => {
+                state.loading = true;
+            })
+            .addCase(AddProduct.fulfilled, (state, action) => {
+                state.loading = false;
+                state.products = action.payload
+                state.successMessage = 'Product successfully added!';  // Set success message
+                console.log('ADD ITEM:', state.products);
+            })
+            .addCase(AddProduct.rejected, (state, action) => {
+                state.loading = false;
+                state.error = action.payload;
+            })
+
+            .addCase(RemoveProduct.pending, (state) => {
+                state.loading = true;
+            })
+            .addCase(RemoveProduct.fulfilled, (state, action) => {
+                state.loading = false;
+                const { id } = action.payload;
+                if (id) {
+                    state.products = state.products.filter((ele) => ele.id !== id)
+                }
+            })
+            .addCase(RemoveProduct.rejected, (state) => {
+                state.loading = false
+                state.error = "Something wrong "
+            })
+
+            .addCase(HandleEdit.pending, (state) => {
+                state.loading = true;
+            })
+            .addCase(HandleEdit.fulfilled, (state, action) => {
+                state.loading = false;
+                // Assuming action.payload contains the updated product data
+                state.EditProductData = action.payload;
+                // You may also update the products array if needed
+                state.products = state.products.map((ele) =>
+                  ele.id === action.payload.id ? { ...ele, ...action.payload } : ele
+                );
+              })
+            .addCase(HandleEdit.rejected,(state)=>{
+                state.loading = false
+                state.error = "Something wrong "
             })
 
     },

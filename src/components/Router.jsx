@@ -17,6 +17,7 @@ import PixelImage from './Resume/pixelimage/PixelImage'
 import ShopNav from './shopping/ShopNav'
 import ShopHome from './shopping/ShopHome'
 import AdminLayout from './shopping/admin/AdminLayout'
+import UpdateProduct from './shopping/admin/UpdateProduct'
 
 
 function Router() {
@@ -39,6 +40,8 @@ function Router() {
       <Route path='/shopping' element={<ShopNav />} />
       <Route path='/shophome' element={<ShopHome />} />
       <Route path='/admin' element={<AdminLayout />} />
+      <Route path='/editPro/:id' element={<UpdateProduct/>}/>
+      
     </Routes>
 
   )

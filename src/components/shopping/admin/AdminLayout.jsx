@@ -12,12 +12,14 @@ import { CiLogout } from "react-icons/ci";
 function AdminLayout() {
     const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [mobilemenu, setMobileMenu] = useState(true)
+    const [productView, setProductView] = useState('AddProduct');
+    const [id,setId] = useState()
 
     const toggleMobileMenu = () => {
         setMobileMenuOpen(!isMobileMenuOpen);
         setMobileMenu(true)
     };
-    
+ console.log("Admin::",productView);
 
     const [productadd, setProductAdd] = useState(true)
     const [productedit, setProductEdit] = useState(false)
@@ -27,28 +29,30 @@ function AdminLayout() {
         setProductAdd(menu === 'AddProduct');
         setProductDelete(menu === 'DeleteProduct');
         setProductEdit(menu == 'EditProduct')
-
+        setProductView(menu);
     };
 
     return (
+
         <div className="flex h-screen bg-gray-300 mt-16">
+            
             {/* Sidebar */}
             <aside className="hidden sm:flex flex-shrink-0 w-64 bg-gray-800 text-white">
 
-                <nav className="space-y-2">
+                <nav className="space-y-2 mt-2">
                     <Link to=" " onClick={() => handleMenu('AddProduct')}
                         className=" p-2 hover:bg-gray-700 flex items-center ml-2">
                         <FaCloudUploadAlt className='mx-1' />
                         Add Product</Link>
-                    <Link to=" "
+                    {/* <Link to=" "
                         onClick={() => handleMenu('EditProduct')}
                         className="flex items-center p-2 hover:bg-gray-700 ml-2">
-                        <FaEdit className='mx-1' />Edit Product</Link>
+                        <FaEdit className='mx-1' />Edit Product</Link> */}
                     <Link to=''
                         onClick={() => handleMenu('DeleteProduct')}
                         className="flex items-center p-2 hover:bg-gray-700 ml-2">
                         <MdDelete className='mx-1' />Delete Product</Link>
-                    <Link to=" " className="flex items-center p-2 hover:bg-gray-700 w-full bg-red-500 ml-2">
+                    <Link to="/shopping " className="flex items-center p-2 hover:bg-gray-700 w-full bg-red-500 ml-2">
                         <CiLogout className='mx-1' />
                         LogOut</Link>
 
@@ -65,23 +69,23 @@ function AdminLayout() {
                     {/* Mobile Menu Content */}
 
                     <nav className="space-y-2">
-                    <Link to=" " onClick={() => handleMenu('AddProduct')}
-                        className=" p-2 hover:bg-gray-700 flex items-center ml-2">
-                        <FaCloudUploadAlt className='mx-1' />
-                        Add Product</Link>
-                    <Link to=" "
-                        onClick={() => handleMenu('EditProduct')}
-                        className="flex items-center p-2 hover:bg-gray-700 ml-2">
-                        <FaEdit className='mx-1' />Edit Product</Link>
-                    <Link to=''
-                        onClick={() => handleMenu('DeleteProduct')}
-                        className="flex items-center p-2 hover:bg-gray-700 ml-2">
-                        <MdDelete className='mx-1' />Delete Product</Link>
-                    <Link to=" " className="flex items-center p-2 hover:bg-gray-700 w-full bg-red-500 ml-2">
-                        <CiLogout className='mx-1' />
-                        LogOut</Link>
+                        <Link to=" " onClick={() => handleMenu('AddProduct')}
+                            className=" p-2 hover:bg-gray-700 flex items-center ml-2">
+                            <FaCloudUploadAlt className='mx-1' />
+                            Add Product</Link>
+                        {/* <Link to=" "
+                            onClick={() => handleMenu('EditProduct')}
+                            className="flex items-center p-2 hover:bg-gray-700 ml-2">
+                            <FaEdit className='mx-1' />Edit Product</Link> */}
+                        <Link to=''
+                            onClick={() => handleMenu('DeleteProduct')}
+                            className="flex items-center p-2 hover:bg-gray-700 ml-2">
+                            <MdDelete className='mx-1' />Delete Product</Link>
+                        <Link to="/shopping" className="flex items-center p-2 hover:bg-gray-700 w-full bg-red-500 ml-2">
+                            <CiLogout className='mx-1' />
+                            LogOut</Link>
 
-                </nav>
+                    </nav>
                 </div>
             </div>}
 
@@ -89,9 +93,10 @@ function AdminLayout() {
             <div className="flex-1 overflow-x-hidden overflow-y-auto">
                 {/* Page content goes here */}
                 <div className="p-4 shadow-md ">
-                    {productadd && <AddProduct />}
-                    {productedit && <UpdateProduct />}
-                    {productdelete && <DeleteProduct />}
+                    {productView === 'AddProduct' && <AddProduct setProductView={setProductView} />}
+                    {productView === 'EditProduct' && <UpdateProduct setProductView={setProductView}  />}
+                    {productView === 'DeleteProduct' && <DeleteProduct setProductView={setProductView} />}
+
                 </div>
             </div>
 

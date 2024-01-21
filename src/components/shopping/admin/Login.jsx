@@ -5,7 +5,7 @@ import AdminLayout from './AdminLayout';
 import { showUser } from '../../../features/userDetailSlice';
 
 function Login() {
-    const [email, setEmail] = useState('');
+    const [email, setEmail] = useState('r@mail.com');
     const [matchEmail, setMatchEmail] = useState('');
     const [loggedin, setLoggedIn] = useState(false);
     const navigate = useNavigate();
@@ -53,11 +53,13 @@ function Login() {
 
 
                         <h1 className="text-xl md:text-2xl font-bold leading-tight ">Log in to your account</h1>
+                        <p className='text-red-500'>{matchEmail}</p>
 
                         <form className="mt-6" onSubmit={handleLogin}>
                             <div>
                                 <label className="block text-gray-700">Email Address</label>
                                 <input type="email" name="" id="" placeholder="Enter Email Address"
+                                value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autofocus autocomplete required />
                             </div>
