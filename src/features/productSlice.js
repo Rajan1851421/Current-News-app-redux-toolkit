@@ -82,6 +82,28 @@ export const ConfirmAddress = createAsyncThunk("ConfirmAddress", async (address,
 }
 );
 
+
+export const FetchAddress = createAsyncThunk('FetchAddress', async (_, { rejectWithValue }) => {
+    try {
+        const response = await axios.get(`https://6584af38022766bcb8c77edd.mockapi.io/news`)
+        return response.data
+    } catch (error) {
+        return rejectWithValue(error);
+
+    }
+})
+
+export const RemoveAddress = createAsyncThunk("RemoveAddress", async (id, { rejectWithValue }) => {
+    try {
+        const response = await axios.delete(`https://6584af38022766bcb8c77edd.mockapi.io/news/${id}`)
+        return response.data
+    } catch (error) {
+        return rejectWithValue(error);
+    }
+})
+
+
+
 export const pruductDetails = createSlice({
     name: 'productdetails',
     initialState: {
@@ -192,13 +214,40 @@ export const pruductDetails = createSlice({
                 state.EditProductData = action.payload;
                 // You may also update the products array if needed
                 state.products = state.products.map((ele) =>
-                  ele.id === action.payload.id ? { ...ele, ...action.payload } : ele
+                    ele.id === action.payload.id ? { ...ele, ...action.payload } : ele
                 );
-              })
-            .addCase(HandleEdit.rejected,(state)=>{
+            })
+            .addCase(HandleEdit.rejected, (state) => {
                 state.loading = false
                 state.error = "Something wrong "
             })
+
+            .addCase(FetchAddress.pending, (state) => {
+                state.loading = true
+            })
+            .addCase(FetchAddress.fulfilled, (state, action) => {
+                state.loading = false;
+                state.address = action.payload;
+            })
+            .addCase(FetchAddress.rejected, (state) => {
+                state.error = "Something wrong Please try Again";
+            })
+
+            .addCase(RemoveAddress.pending, (state) => {
+                state.loading = true;
+            })
+            .addCase(RemoveAddress.fulfilled, (state, action) => {
+                state.loading = false;
+                const { id } = action.payload;
+                if (id) {
+                    state.address = state.address.filter((ele) => ele.id !== id)
+                }
+            })
+            .addCase(RemoveAddress.rejected, (state) => {
+                state.loading = false
+                state.error = "Something wrong "
+            })
+
 
     },
 })

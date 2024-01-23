@@ -5,21 +5,22 @@ import { cartRemoveProduct } from '../../features/productSlice';
 import StarRating from './StarRating';
 import { useNavigate } from 'react-router-dom';
 import { FaShoppingCart } from "react-icons/fa";
+import MyOrder from './MyOrder';
 
 function ShopCart() {
   const navigate = useNavigate()
   const [qty, setQty] = useState(1)
+  const [isPlaceOrderModalOpen, setPlaceOrderModalOpen] = useState(false);
+
   window.scrollTo(0, 0)
   const [placeOrder, SetPlaceOrderPage] = useState(false);
   const dispatch = useDispatch()
   const { cart } = useSelector((state) => state.product);
 
-
-
-
   const HnadlePlaceOrder = () => {
     SetPlaceOrderPage(true)
   };
+
 
   const handleIncreaseQty = (cartItemId) => {
     const updatedCart = cart.map((item) =>
@@ -97,21 +98,30 @@ function ShopCart() {
                 </span>
               </button>
             </div>
-
-            {placeOrder &&
-            <div className='h-screen overflow-auto'>
-                <CustomerInformation />
-            </div>
-            
-            }
-          </div>) : (
-            <div>
-
-            </div>
-          )
+          </div>) : (<div>  </div>)
           }
+
         </div>
       </div>
+      {placeOrder && (
+        <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50">
+          <div className="bg-white w-full max-w-screen-xl mt-16 p-8 rounded-md shadow-md overflow-y-auto" style={{ maxHeight: '75vh' }}>
+          <button
+              className="bg-indigo-600 text-white px-4 py-2 rounded-md float-right"
+              onClick={() => SetPlaceOrderPage(false)}
+            >
+              Close
+            </button>
+            <CustomerInformation />
+            <button
+              className="bg-indigo-600 text-white px-4 py-2 rounded-md"
+              onClick={() => SetPlaceOrderPage(false)}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
 
 
     </>

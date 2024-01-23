@@ -9,6 +9,7 @@ function UpdateProduct() {
   const [updateData, setUpdateData] = useState();
   const { id } = useParams()
   const [alert, setAlert] = useState(false)
+  const [modal , setModal] = useState(true)
   const dispatch = useDispatch();
   const { products, loading, EditProductData } = useSelector((state) => state.product)
 
@@ -37,18 +38,17 @@ function UpdateProduct() {
       setAlert(true)
     }
   };
-
-
-
+  const handleClose =()=>{
+    setModal(false)
+  }
   return (
     <div>
-
-      <div className='my-5 w-full'>
+     { modal && <div className='my-5 w-full'>
         {alert && <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400 sticky top-0 left-0" role="alert">
           <span class="font-medium">Success alert!</span> Updated {EditProductData.title}
           <span className='flex justify-end items-end cursor-pointer' onClick={() => { setAlert(false) }}>close</span></div>}
         <div class="w-full sm:w-[90%] md:w-[75%] lg:w-[80%] mx-auto bg-white p-6 rounded-md shadow-md">
-          <Link to=''>Back</Link>
+          <button onClick={handleClose}>Lose</button>
           <h1 class="text-2xl font-bold mb-4">Update Information</h1>
           <form action="#" method="post" class="space-y-4" onSubmit={handleUpdate}>
             {/* <!-- Product Title --> */}
@@ -120,14 +120,7 @@ function UpdateProduct() {
                 className="mt-1 p-2 w-full border rounded-md"
               />
             </div>
-
-
-
-
-
-
-
-            {/* <!-- Submit Button --> */}
+                        {/* <!-- Submit Button --> */}
             <div>
 
               <button type='submit' class="w-full text-center mx-auto relative inline-flex items-center px-12 py-2 overflow-hidden text-lg font-medium text-indigo-600 border-2 border-indigo-600 rounded-full hover:text-white group hover:bg-gray-50">
@@ -138,13 +131,9 @@ function UpdateProduct() {
                 <span class="relative">Upload Product</span>
               </button>
             </div>
-
           </form>
-
         </div>
-
-
-      </div>
+      </div>}
     </div>
   )
 }
