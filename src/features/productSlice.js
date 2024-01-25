@@ -67,7 +67,7 @@ export const HandleEdit = createAsyncThunk("HandleEdit", async ({ id, updateData
 export const ConfirmAddress = createAsyncThunk("ConfirmAddress", async (address, { rejectWithValue }) => {
     try {
         const response = await axios.post(
-            'https://6584af38022766bcb8c77edd.mockapi.io/news',
+            'https://dummyapi.online/api/users',
             address,
             {
                 headers: {
@@ -85,7 +85,7 @@ export const ConfirmAddress = createAsyncThunk("ConfirmAddress", async (address,
 
 export const FetchAddress = createAsyncThunk('FetchAddress', async (_, { rejectWithValue }) => {
     try {
-        const response = await axios.get(`https://6584af38022766bcb8c77edd.mockapi.io/news`)
+        const response = await axios.get(`https://dummyapi.online/api/users`)
         return response.data
     } catch (error) {
         return rejectWithValue(error);
@@ -93,9 +93,9 @@ export const FetchAddress = createAsyncThunk('FetchAddress', async (_, { rejectW
     }
 })
 
-export const RemoveAddress = createAsyncThunk("RemoveAddress", async (id, { rejectWithValue }) => {
+export const SelectAddress = createAsyncThunk("SelectAddress", async (id, { rejectWithValue }) => {
     try {
-        const response = await axios.delete(`https://6584af38022766bcb8c77edd.mockapi.io/news/${id}`)
+        const response = await axios.get(`https://dummyapi.online/api/users/${id}`)
         return response.data
     } catch (error) {
         return rejectWithValue(error);
@@ -109,6 +109,7 @@ export const pruductDetails = createSlice({
     initialState: {
         products: [],
         address: [],
+        selectAddress:[],
         successMessage: null,
         cart: [],
         EditProductData: null,
@@ -233,17 +234,21 @@ export const pruductDetails = createSlice({
                 state.error = "Something wrong Please try Again";
             })
 
-            .addCase(RemoveAddress.pending, (state) => {
+            .addCase(SelectAddress.pending, (state) => {
                 state.loading = true;
             })
-            .addCase(RemoveAddress.fulfilled, (state, action) => {
+            .addCase(SelectAddress.fulfilled, (state, action) => {
                 state.loading = false;
-                const { id } = action.payload;
+                const { id } = action.payload
                 if (id) {
-                    state.address = state.address.filter((ele) => ele.id !== id)
+                    const matchAddressId = state.address.find((ele) => ele.id === id);
+                    if (matchAddressId) {
+                        state.selectAddress = matchAddressId;
+                       
+                    }
                 }
             })
-            .addCase(RemoveAddress.rejected, (state) => {
+            .addCase(SelectAddress.rejected, (state) => {
                 state.loading = false
                 state.error = "Something wrong "
             })
