@@ -3,14 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import CustomerInformation from './CustomerInformation';
 import { cartRemoveProduct } from '../../features/productSlice';
 import StarRating from './StarRating';
-import { useNavigate } from 'react-router-dom';
-import { FaShoppingCart } from "react-icons/fa";
-import MyOrder from './MyOrder';
+import { ImCross } from "react-icons/im";
+
+
 
 function ShopCart() {
-  const navigate = useNavigate()
-  const [qty, setQty] = useState(1)
-  const [isPlaceOrderModalOpen, setPlaceOrderModalOpen] = useState(false);
 
   window.scrollTo(0, 0)
   const [placeOrder, SetPlaceOrderPage] = useState(false);
@@ -20,22 +17,28 @@ function ShopCart() {
   const HnadlePlaceOrder = () => {
     SetPlaceOrderPage(true)
   };
+  useEffect(()=>{
+
+  },[])
 
 
   const handleIncreaseQty = (cartItemId) => {
     const updatedCart = cart.map((item) =>
       item.id === cartItemId ? { ...item, quantity: item.quantity + 1 } : item
     );
-
-  }
+  
+    // Update the state with the new cart
+    dispatch(setCart(updatedCart));
+  };
+  
 
 
 
   return (
     <>
       <div class="container grid md:grid-cols-2 xl:grid-cols-2 sm:grid-cols-1 gap-2">
-        <div>
-          <div className='container my-14 mx-auto w-full bg-white grid grid-cols-1 md:grid-cols-1 md:p-8  overflow-auto'>
+        <div className='container'>
+          <div className=' my-[68px] mx-auto w-full bg-white grid grid-cols-1 md:grid-cols-1 md:p-8  overflow-auto'>
             {/* First Column - Mapped Items */}
             <div className=''>
               {cart.length == 0 ? (
@@ -79,9 +82,8 @@ function ShopCart() {
 
             </div>
           </div>
-        </div>
 
-        <div className='md:fixed md:top-[144px] md:w-1/2 md:right-0 h-screen md:overflow-y-auto sm:overflow-y-hidden sm:block sm:w-full '>
+          <div className='md:fixed md:top-[148px] md:w-1/2 md:right-0 h-screen md:overflow-y-auto sm:overflow-y-hidden sm:block sm:w-full container '>
           {cart.length > 0 ? (<div className=' flex flex-col bg-slate-200 py-3  items-center  shadow-xl '>
             <p className='font-bold text-lg md:text-xl'>{`Total Item : ${cart.length}`} </p> <br />
             <p className='font-bold text-lg md:text-xl'>
@@ -94,7 +96,7 @@ function ShopCart() {
                 <span class="absolute top-0 left-0 w-20 h-8 -mt-1 -ml-12 transition-all duration-300 ease-out transform -rotate-45 -translate-x-1 bg-white opacity-10 group-hover:translate-x-0"></span>
                 <span class="relative z-20 flex items-center text-sm">
                   <svg class="relative w-5 h-5 mr-2 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                  Place Order
+                  Select Address
                 </span>
               </button>
             </div>
@@ -110,18 +112,21 @@ function ShopCart() {
               className="bg-indigo-600 text-white px-4 py-2 rounded-md float-right"
               onClick={() => SetPlaceOrderPage(false)}
             >
-              Close
+              <ImCross/>
             </button>
             <CustomerInformation />
             <button
               className="bg-indigo-600 text-white px-4 py-2 rounded-md"
               onClick={() => SetPlaceOrderPage(false)}
             >
-              Close
+               <ImCross/>
             </button>
           </div>
         </div>
       )}
+        </div>
+
+       
 
 
     </>

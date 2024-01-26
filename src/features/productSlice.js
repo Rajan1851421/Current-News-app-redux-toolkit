@@ -1,9 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const fetchProduct = createAsyncThunk("fetchProduct", async (_, { rejectWithValue }) => {
+export const fetchProduct = createAsyncThunk("fetchProduct", async (category, { rejectWithValue }) => {
     try {
-        const response = await axios.get(`https://fakestoreapi.com/products/`)
+        const response = await axios.get(`https://fakestoreapi.com/products/${category}`)
         return response.data;
     } catch (error) {
         return rejectWithValue(error);
@@ -109,7 +109,7 @@ export const pruductDetails = createSlice({
     initialState: {
         products: [],
         address: [],
-        selectAddress:[],
+        uniqueAddress: [],
         successMessage: null,
         cart: [],
         EditProductData: null,
@@ -126,7 +126,7 @@ export const pruductDetails = createSlice({
             .addCase(fetchProduct.fulfilled, (state, action) => {
                 state.loading = false;
                 state.products = action.payload;
-                //console.log(action.payload);
+                console.log(action.payload);
             })
             .addCase(fetchProduct.rejected, (state, action) => {
                 state.loading = false;
@@ -211,12 +211,8 @@ export const pruductDetails = createSlice({
             })
             .addCase(HandleEdit.fulfilled, (state, action) => {
                 state.loading = false;
-                // Assuming action.payload contains the updated product data
                 state.EditProductData = action.payload;
-                // You may also update the products array if needed
-                state.products = state.products.map((ele) =>
-                    ele.id === action.payload.id ? { ...ele, ...action.payload } : ele
-                );
+                state.products = state.products.map((ele) => ele.id === action.payload.id ? { ...ele, ...action.payload } : ele);
             })
             .addCase(HandleEdit.rejected, (state) => {
                 state.loading = false
@@ -239,15 +235,20 @@ export const pruductDetails = createSlice({
             })
             .addCase(SelectAddress.fulfilled, (state, action) => {
                 state.loading = false;
-                const { id } = action.payload
+                const { id } = action.payload;
                 if (id) {
-                    const matchAddressId = state.address.find((ele) => ele.id === id);
-                    if (matchAddressId) {
-                        state.selectAddress = matchAddressId;
-                       
+                    const matchAddress = state.address.find((ele) => ele.id === id);
+                    if (matchAddress) {
+                        // state.uniqueAddress = { ...state.uniqueAddress, [id]: matchAddress, ...state.uniqueAddress };
+                        state.uniqueAddress = matchAddress
+                        
                     }
                 }
+                console.log("data:", state.uniqueAddress);
             })
+
+
+
             .addCase(SelectAddress.rejected, (state) => {
                 state.loading = false
                 state.error = "Something wrong "

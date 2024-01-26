@@ -14,10 +14,11 @@ import JSON from './JSON'
 import Texteditor from './Texteditor'
 import PixelImage from './Resume/pixelimage/PixelImage'
 
-import ShopNav from './shopping/ShopNav'
 import ShopHome from './shopping/ShopHome'
 import AdminLayout from './shopping/admin/AdminLayout'
 import UpdateProduct from './shopping/admin/UpdateProduct'
+import ShopCart from './shopping/ShopCart'
+import ShoppingWrapper from './shopping/ShoppingWrapper'
 
 
 function Router() {
@@ -37,10 +38,11 @@ function Router() {
       <Route path='/check' element={<Check />} />
       <Route path='/json' element={<JSON />} />
       <Route path='/editor' element={<Texteditor />} />
-      <Route path='/shopping' element={<ShopNav />} />
+      <Route path='/shopping' element={<ShoppingWrapper />} />
       <Route path='/shophome' element={<ShopHome />} />
       <Route path='/admin' element={<AdminLayout />} />
       <Route path='/editPro/:id' element={<UpdateProduct/>}/>
+     
       
     </Routes>
 

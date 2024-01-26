@@ -3,16 +3,16 @@ import { useSelector } from 'react-redux';
 import Loading from '../Loading';
 
 function MyOrder() {
-  const { loading, selectAddress, cart } = useSelector((state) => state.product);
+  const { loading, uniqueAddress, cart } = useSelector((state) => state.product);
   const [viewOrder, setViewOrder] = useState(false);
 
   useEffect(() => {
-    console.log(selectAddress);
+    console.log(uniqueAddress);
     console.log(cart.length);
 
     // Set viewOrder to true only if cart has items
     setViewOrder(cart.length > 0);
-  }, [selectAddress, cart]);
+  }, [uniqueAddress, cart]);
 
   return (
     <div className='bg-no-repeat bg-cover h-screen bg-[url("https://img.freepik.com/premium-photo/3d-rendering-white-abstract-geometric-pattern_344726-140.jpg")]'>
@@ -27,12 +27,12 @@ function MyOrder() {
                   ))}
               </div>
               <div className='p-3 shadow-lg'>
-                <p>{`Name: ${selectAddress && selectAddress.name}`}</p>
-                <p>{`Email: ${selectAddress && selectAddress.email}`}</p>
-                <p>{`Street: ${selectAddress.address && selectAddress.address.street}`}</p>
-                <p>{`City: ${selectAddress.address && selectAddress.address.city}`}</p>
-                <p>{`State: ${selectAddress.address && selectAddress.address.state}`}</p>
-                <p>{`Pincode: ${selectAddress.address && selectAddress.address.zipcode}`}</p>
+                <p>{`Name: ${uniqueAddress && uniqueAddress.name}`}</p>
+                <p>{`Email: ${uniqueAddress && uniqueAddress.email}`}</p>
+                <p>{`Street: ${uniqueAddress.address && uniqueAddress.address.street}`}</p>
+                <p>{`City: ${uniqueAddress.address && uniqueAddress.address.city}`}</p>
+                <p>{`State: ${uniqueAddress.address && uniqueAddress.address.state}`}</p>
+                <p>{`Pincode: ${uniqueAddress.address && uniqueAddress.address.zipcode}`}</p>
               </div>
 
               <p className='float-right font-bold'>{`Total Amount: INR ${cart.reduce((total, cartItem) => total + cartItem.price, 0)}`}</p>

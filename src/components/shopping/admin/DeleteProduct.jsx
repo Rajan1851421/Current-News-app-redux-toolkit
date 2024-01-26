@@ -8,6 +8,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 function DeleteProduct() {
   const [updateData, setUpdateData] = useState();
+  const [category, setCategory] = useState('');
   const [id, setId] = useState()
   const [alert, setAlert] = useState(false)
   const [modal, setModal] = useState(false)
@@ -21,14 +22,14 @@ function DeleteProduct() {
   };
   useEffect(() => {
     window.scrollTo(0, 14)
-    dispatch(fetchProduct());
+    dispatch(fetchProduct(category));
     if (id && products) {
       const singleProduct = products.filter((ele) => ele.id == id);
       if (singleProduct.length > 0) {
         setUpdateData(singleProduct[0]);
       }
     }
-  }, [id]);
+  }, [id, dispatch]);
 
   const handleUpdate = (e) => {
     e.preventDefault(); // Correcting the typo here
@@ -41,7 +42,7 @@ function DeleteProduct() {
       setTimeout(() => {
         setAlert(false) // Clear the uplaod message after 3 seconds
       }, 6000)
-      
+
       setEditModal(true)
       setModal(false)
     }
@@ -80,9 +81,6 @@ function DeleteProduct() {
 
       <div>
         {modal && <div className='my-5 w-full'>
-
-
-
           <div class="w-full sm:w-[90%] md:w-[75%] lg:w-[80%] mx-auto bg-white p-6 rounded-md shadow-md">
             <div className='flex justify-end'>
               <button className='bg-red-500 rounded-lg px-2 text-white ' onClick={handleClose}>Close </button>
