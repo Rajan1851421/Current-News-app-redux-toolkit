@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import Loading from '../Loading';
+import { FaGooglePay } from "react-icons/fa";
+import { SiPaytm } from "react-icons/si";
 
 function MyOrder() {
-  const { loading, uniqueAddress, cart } = useSelector((state) => state.product);
+  const { uniqueAddress, cart } = useSelector((state) => state.product);
   const [viewOrder, setViewOrder] = useState(false);
 
   useEffect(() => {
-    console.log(uniqueAddress);
-    console.log(cart.length);
-
     // Set viewOrder to true only if cart has items
     setViewOrder(cart.length > 0);
   }, [uniqueAddress, cart]);
@@ -19,14 +18,25 @@ function MyOrder() {
       <div className='container mx-auto'>
         <div className='flex justify-center items-center h-screen'>
           {viewOrder ? (
-            <div className='order w-full sm:w-3/4 md:w-1/2 lg:w-1/3 xl:w-1/4 2xl:w-1/5 shadow-lg bg-indigo-300 p-5'>
-              <div>
+            <div className='order w-full sm:w-full md:w-1/2 lg:w-1/2 xl:w-1/2 2xl:w-1/5 shadow-lg bg-indigo-300 px-10 py-5'>
+              <div className='border border-gray-200 my-1 p-2 '>
                 {cart &&
                   cart.map((cartItem) => (
-                    <p key={cartItem.id}>{`Item: ${cartItem.title}`}</p>
+                    <div>
+                      <p key={cartItem.id} className="flex items-center text-lg font-semibold ">
+                        <img
+                          src={cartItem.image}
+                          className="h-10 bg-white py-1 px-2 rounded-full border border-gray-600 mr-2"
+                          alt=""
+                        />
+                        {cartItem.title}
+                      </p>
+                    </div>
+
                   ))}
               </div>
-              <div className='p-3 shadow-lg'>
+              <div className='p-5 shadow-lg bg-gray-200'>
+                <span className='bg-gray-400 px-6 py-1 text-left'>Customer Info:</span>
                 <p>{`Name: ${uniqueAddress && uniqueAddress.name}`}</p>
                 <p>{`Email: ${uniqueAddress && uniqueAddress.email}`}</p>
                 <p>{`Street: ${uniqueAddress.address && uniqueAddress.address.street}`}</p>
@@ -34,8 +44,11 @@ function MyOrder() {
                 <p>{`State: ${uniqueAddress.address && uniqueAddress.address.state}`}</p>
                 <p>{`Pincode: ${uniqueAddress.address && uniqueAddress.address.zipcode}`}</p>
               </div>
+              
+              <p className='float-right font-bold mt-2 border border-gray-200 p-2 rounded-md'>
 
-              <p className='float-right font-bold'>{`Total Amount: INR ${cart.reduce((total, cartItem) => total + cartItem.price, 0)}`}</p>
+
+                {`Total Amount: INR ${cart.reduce((total, cartItem) => total + cartItem.price, 0)}`}</p>
             </div>
           ) : (
             <div className='text-center'>

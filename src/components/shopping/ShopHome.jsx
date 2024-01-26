@@ -24,8 +24,8 @@ function ShopHome() {
     return (
         <>
             <div className="container mx-auto mt-20">
-                <div className='w-1/2 mx-auto'>
-                    <label for="category" class="block text-sm font-medium text-gray-600">Select for Search</label>
+                <div className='md:w-1/2 lg:w-1/2 xl:w-1/2 sm:w-[90%] mx-auto'>
+                    <label for="category" className="block text-sm font-medium text-gray-600">Select for Search</label>
                     <select
                         id="category"
                         name="category"
@@ -45,33 +45,33 @@ function ShopHome() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 my-3">
 
                     {products && products.map((product) => (
-                        <div key={product.id} className="flex bg-transparent rounded-lg shadow dark:bg-gray-600 p-6">
-                            <div className="relative flex-none w-20 md:w-48 p-3">
-                                <img src={product.image} alt="shopping image" className="absolute inset-0 object-cover w-full h-full rounded-lg" />
+                        <div key={product.id} className="flex flex-col bg-transparent rounded-lg shadow dark:bg-gray-600 p-3 md:p-6">
+                            <div className="relative flex-none w-full h-48 md:h-auto md:w-48 p-3 flex items-center justify-center">
+                                <img src={product.image} alt="shopping image" className="object-cover w-full h-full rounded-lg mx-auto" />
                             </div>
                             <form className="flex-auto pl-2">
-                                <h1 className="text-[15px] font-semibold dark:text-gray-50">{product.title}</h1>
-                                <p className="text-[12px] font-semibold text-gray-500 dark:text-gray-300">{`Price: ${product.price}`}</p>
+                                <h1 className="text-[15px] md:text-xl font-semibold dark:text-gray-50">{product.title}</h1>
+                                <p className="text-[12px] md:text-base font-semibold text-gray-500 dark:text-gray-300">{`Price: ${product.price}`}</p>
                                 <span>{product.category}</span>
                                 <span>
                                     <StarRating stars={product.rating.rate} count={product.rating.count} />
                                 </span>
-                                <div className="flex mb-4 text-sm font-medium">
-                                    <button key={product.id}
+                                <div className="flex mb-2 md:mb-4 text-sm font-medium">
+                                    <button
+                                        key={product.id}
                                         onClick={() => { dispatch(ViewProduct(product.id)) }}
                                         type="button"
-                                        className=" rounded-lg bg-blue-600 p-3 hover:bg-blue-800 hover:text-white"
+                                        className="rounded-lg bg-blue-600 p-2 md:p-3 hover:bg-blue-800 hover:text-white"
                                     >
                                         Add To Cart
                                     </button>
                                 </div>
-                                <p className="text-sm text-gray-500 dark:text-gray-300 ">
-                                    {`Discription:  ${product.description.slice(0, 50)}`}
+                                <p className="text-sm md:text-base text-gray-500 dark:text-gray-300">
+                                    {`Description: ${product.description.slice(0, 50)}`}
                                 </p>
                             </form>
                         </div>
                     ))}
-
                 </div>
             </div>
         </>
