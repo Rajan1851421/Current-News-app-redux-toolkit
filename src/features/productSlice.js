@@ -102,6 +102,15 @@ export const SelectAddress = createAsyncThunk("SelectAddress", async (id, { reje
     }
 })
 
+export const CancleOrder = createAsyncThunk("CancleOrder", async (id, { rejectWithValue }) => {
+    try {
+        const response = await axios.delete(`https://fakestoreapi.com/products/${id}`)
+        return response.data
+    } catch (error) {
+        return rejectWithValue(error);
+    }
+})
+
 
 
 export const pruductDetails = createSlice({
@@ -112,6 +121,7 @@ export const pruductDetails = createSlice({
         uniqueAddress: [],
         successMessage: null,
         cart: [],
+        order: [],
         EditProductData: null,
         loading: false,
         error: null
@@ -241,18 +251,32 @@ export const pruductDetails = createSlice({
                     if (matchAddress) {
                         // state.uniqueAddress = { ...state.uniqueAddress, [id]: matchAddress, ...state.uniqueAddress };
                         state.uniqueAddress = matchAddress
-                        
+
                     }
                 }
-                console.log("data:", state.uniqueAddress);
+                state.order = state.cart
+              
             })
-
-
-
             .addCase(SelectAddress.rejected, (state) => {
                 state.loading = false
                 state.error = "Something wrong "
             })
+
+            .addCase(CancleOrder.pending, (state) => {
+                state.loading = true;
+            })
+            .addCase(CancleOrder.fulfilled, (state, action) => {
+                state.loading = false;
+                const { id } = action.payload;               
+                if (id) {                 
+                    state.order = state.order.filter((ele) => ele.id !== id);
+                }
+            })
+            .addCase(CancleOrder.rejected, (state) => {
+                state.loading = false;
+                state.error = "Something wrong";
+            })
+
 
 
     },

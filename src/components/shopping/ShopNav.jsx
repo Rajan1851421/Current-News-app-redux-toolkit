@@ -10,7 +10,7 @@ import Login from './admin/Login';
 import { Link } from 'react-router-dom';
 
 function ShopNav() {
-    const { cart, uniqueAddress } = useSelector((state) => state.product)
+    const { cart, uniqueAddress,order } = useSelector((state) => state.product)
     const [home, setHome] = useState(true);
     const [cartcontainer, setCartcontainer] = useState(false);
     const [orderpage, setOrderPage] = useState(false)
@@ -48,7 +48,7 @@ function ShopNav() {
                         </Link>
                     </li>
                     <li className="mr-3">
-                        {uniqueAddress.length === 0 ? (
+                        {order.length === 0 ? (
                             <span className="text-gray-500 cursor-not-allowed">
                                 <GiShoppingBag className='mx-1' /> Orders
                             </span>

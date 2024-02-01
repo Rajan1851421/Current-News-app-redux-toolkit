@@ -8,7 +8,7 @@ function CustomerInformation() {
     const [curAddress, setCurAddress] = useState({});
     const dispatch = useDispatch();
     const [showAddressForm, setShowAddressForm] = useState(false);
-    const [fatchedAddresslayout,setFatchedAddresslayout] = useState(true)
+    const [fatchedAddresslayout, setFatchedAddresslayout] = useState(true)
     const [selectedAddressId, setSelectedAddressId] = useState(false);
     const { loading, error, address } = useSelector((state) => state.product);
 
@@ -21,23 +21,24 @@ function CustomerInformation() {
         setCurAddress({ ...curAddress, [e.target.name]: e.target.value });
     };
 
-
     const handleSelectAddress = (eleId) => {
         dispatch(SelectedAddress(eleId));
         setSelectedAddressId(eleId); // Update selectedAddressId with the actual ID
         setFatchedAddresslayout(false)
     };
-
-
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(ConfirmAddress(curAddress));
         setShowAddressForm(false);
     };
-
     const handleNewAddress = () => {
         setShowAddressForm(true);
     };
+    if (loading) {
+        return (
+            <Loading />
+        )
+    }
 
     return (
         <>
@@ -46,7 +47,7 @@ function CustomerInformation() {
                 {selectedAddressId && (
                     <PlacedOrder selectedAddressId={selectedAddressId} />
                 )}
-               {fatchedAddresslayout && <div>
+                {fatchedAddresslayout && <div>
                     <h2 className="text-2xl font-semibold mb-6">Customer Information</h2>
                     <table className="w-full table-fixed hidden md:table">
                         <thead className="md:table-header-group">
@@ -64,13 +65,15 @@ function CustomerInformation() {
                                         <td className="border px-4 py-2 md:table-cell">{ele.name}</td>
                                         <td className="border px-4 py-2 md:table-cell">{ele.address.city}</td>
                                         <td className="border px-4 py-2 md:table-cell">{ele.address.street}</td>
-                                        <td className="border  py-2 md:table-cell mx-auto ">
-                                            <button
-                                                onClick={() => handleSelectAddress(ele.id)}
-                                                className='bg-yellow-500 px-3 py-1'
-                                            >
-                                                Placed Order
-                                            </button>
+                                        <td className="border py-2 md:table-cell ">
+                                            <div className='flex  justify-center items-center'>
+                                                <button
+                                                    onClick={() => handleSelectAddress(ele.id)}
+                                                    className='bg-yellow-500 px-3 py-1 border border-gray-200 hover:bg-transparent  transition duration-500 ease-in-out'
+                                                >
+                                                    Check out
+                                                </button>
+                                            </div>
                                         </td>
                                     </tr>
                                 ))
@@ -91,7 +94,7 @@ function CustomerInformation() {
                                     </div>
                                     <div className='text-center'>
                                         <p onClick={() => handleSelectAddress(ele.id)} className='bg-yellow-500 px-3 py-2 mx-auto text-center'>
-                                            Placed Order
+                                            Check out
                                         </p>
 
                                     </div>

@@ -12,10 +12,11 @@ function Login() {
     const dispatch = useDispatch()
     const { users } = useSelector((state) => state.app);
     const newEmail = users.map((ele) => ele.email);
-
+    const loginImage =
+        'https://img.freepik.com/free-vector/computer-login-concept-illustration_114360-7862.jpg?size=626&ext=jpg&ga=GA1.1.108132751.1702923772&semt=sph'
     useEffect(() => {
         dispatch(showUser())
-        window.scrollTo(0,80)
+        window.scrollTo(0, 0)
     }, [])
 
     const handleLogin = (e) => {
@@ -39,15 +40,15 @@ function Login() {
         <>
 
             {/* <!-- component --> */}
-            <section className="flex flex-col md:flex-row h-screen items-center mt-16 ">
+            <section className="flex flex-col md:flex-row h-screen items-center container ">
 
                 <div className="bg-indigo-600 hidden lg:block w-full md:w-1/2 xl:w-2/3 h-screen">
-                    <img src="https://images.unsplash.com/photo-1705654731763-4fc956cbcb3d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwcm9maWxlLXBhZ2V8MXx8fGVufDB8fHx8fA%3D%3D"
-                     alt="" className="w-full h-full object-cover" />
+                    <img src={loginImage}
+                        alt="" className="w-full h-full object-cover" />
                 </div>
 
                 <div className="bg-white w-full md:max-w-md lg:max-w-full md:mx-auto md:mx-0 md:w-1/2 xl:w-1/3 h-screen px-6 lg:px-16 xl:px-12
-        flex items-center justify-center">
+                                    flex items-center justify-center">
 
                     <div className="w-full h-100">
 
@@ -59,7 +60,7 @@ function Login() {
                             <div>
                                 <label className="block text-gray-700">Email Address</label>
                                 <input type="email" name="" id="" placeholder="Enter Email Address"
-                                value={email}
+                                    value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autofocus autocomplete required />
                             </div>
@@ -94,7 +95,7 @@ function Login() {
 
 
 
-            
+
         </>
     );
 }
