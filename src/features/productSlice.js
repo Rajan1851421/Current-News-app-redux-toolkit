@@ -110,6 +110,21 @@ export const CancleOrder = createAsyncThunk("CancleOrder", async (id, { rejectWi
         return rejectWithValue(error);
     }
 })
+export const AllCancleOrder = createAsyncThunk('AllCancleOrder', async (ids, { rejectWithValue }) => {
+    try {
+        const responses = await Promise.all(
+            ids.map(async (id) => {
+                return axios.delete(`https://fakestoreapi.com/products/${id}`);
+            })
+        );
+
+        // Extract data from all responses
+        const responseData = responses.map(response => response.data);
+        return responseData; // Return array of response data for each deleted order
+    } catch (error) {
+        return rejectWithValue(error);
+    }
+});
 
 
 
@@ -120,6 +135,7 @@ export const pruductDetails = createSlice({
         address: [],
         uniqueAddress: [],
         successMessage: null,
+        status: '',
         cart: [],
         order: [],
         EditProductData: null,
@@ -255,7 +271,7 @@ export const pruductDetails = createSlice({
                     }
                 }
                 state.order = state.cart
-              
+
             })
             .addCase(SelectAddress.rejected, (state) => {
                 state.loading = false
@@ -267,15 +283,28 @@ export const pruductDetails = createSlice({
             })
             .addCase(CancleOrder.fulfilled, (state, action) => {
                 state.loading = false;
-                const { id } = action.payload;               
-                if (id) {                 
+                const { id } = action.payload;
+                if (id) {
                     state.order = state.order.filter((ele) => ele.id !== id);
+                    state.status = 'Item Deleted !!!'
                 }
             })
             .addCase(CancleOrder.rejected, (state) => {
                 state.loading = false;
                 state.error = "Something wrong";
             })
+
+            .addCase(AllCancleOrder.pending, (state) => {
+                state.status = 'loading';
+            })
+            .addCase(AllCancleOrder.fulfilled, (state, action) => {
+                state.status = 'succeeded';
+                state.order = [];
+            })
+            .addCase(AllCancleOrder.rejected, (state, action) => {
+                state.status = 'failed';
+                state.error = action.payload; // Store the error message in the state
+            });
 
 
 

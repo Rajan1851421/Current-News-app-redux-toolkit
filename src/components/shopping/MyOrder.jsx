@@ -1,29 +1,69 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { CancleOrder } from '../../features/productSlice';
+import { AllCancleOrder } from '../../features/productSlice';
+import Loading from '../Loading'
+import { MdDeleteForever } from "react-icons/md";
+import { PiArrowUDownRightBold } from "react-icons/pi";
 
 function MyOrder() {
-  const { uniqueAddress, order } = useSelector((state) => state.product);
+  const { uniqueAddress, order, loading, status } = useSelector((state) => state.product);
   const [viewOrder, setViewOrder] = useState(false);
   const dispatch = useDispatch();
+  const [delStatus, setDelStatus] = useState()
+  const [delModal, setDelModal] = useState(false)
+
 
   useEffect(() => {
+    setDelStatus(status)
     // Set viewOrder to true only if cart has items
     setViewOrder(order.length > 0);
-  }, [uniqueAddress,order]);
+  }, [uniqueAddress, order]);
 
   const handleRemoveOrder = (id) => {
     console.log("Order Id:", id);
     dispatch(CancleOrder(id));
+    setDelStatus('')
+    setTimeout(() => {
+      setDelStatus('')
+    }, 5000)
   };
+
+  const handleCancelAll = () => {
+
+    // Extract all item IDs
+    const itemIds = order.map(item => item.id);
+    // Dispatch AllCancleOrder with all item IDs
+    dispatch(AllCancleOrder(itemIds));
+    setDelModal(false)
+  };
+  if (loading) {
+    return (
+      <Loading />
+    )
+  }
+  const handleNobuttonForCalcleOrder = () => {
+    setDelModal(false)
+  }
+  const confirmMessageButton = () => {
+    setDelModal(true)
+  }
+
+
+
+
 
   return (
     <div className='bg-no-repeat bg-cover min-h-screen bg-[url("https://img.freepik.com/premium-photo/3d-rendering-white-abstract-geometric-pattern_344726-140.jpg")]'>
       <div className='container mx-auto'>
         <div className='flex justify-center items-center min-h-screen'>
           {viewOrder ? (
-            <div className='order w-full sm:w-full md:w-1/2 lg:w-1/2 xl:w-1/2 2xl:w-1/5 shadow-lg bg-gradient-to-r from-amber-200 to-yellow-500 px-5 md:px-10 py-5'>
+            <div className='order w-full sm:w-full md:w-1/2 lg:w-1/2 xl:w-1/2 2xl:w-1/3 shadow-lg bg-gradient-to-r from-amber-200 to-yellow-500 px-5 md:px-10 py-5'>
               <div className='border border-gray-200 my-1 p-2 '>
+                <span></span>
+                {delStatus && <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                  <span class="font-medium">{delStatus}</span>
+                </div>}
                 {order &&
                   order.map((cartItem) => (
                     <div className=' ' key={cartItem.id}>
@@ -63,7 +103,9 @@ function MyOrder() {
                   </span>
                 </div>
                 <div className='mt-3 md:mt-0'>
-                  <button className='px-2 py-1 border border-x-gray-600 border-y-cyan-600 transition duration-500 ease-in-out hover:bg-green-500 md:ml-2'>
+                  <button
+                    onClick={confirmMessageButton}
+                    className='px-2 py-1 border border-x-gray-600 border-y-cyan-600 transition duration-500 ease-in-out hover:bg-green-500 md:ml-2'>
                     Cancel All
                   </button>
                 </div>
@@ -86,6 +128,23 @@ function MyOrder() {
           )}
         </div>
       </div>
+
+
+
+
+
+      {delModal &&
+        <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center backdrop-filter backdrop-blur-md ">
+          <div className="bg-white p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 rounded shadow-lg flex flex-col sm:flex-row justify-around max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-4xl">
+            <button onClick={handleCancelAll} className="bg-red-400 py-2 px-4 mb-2 sm:mb-0 sm:mr-2 rounded flex items-center justify-center"><MdDeleteForever className="mr-1" /> Yes</button>
+            <button onClick={handleNobuttonForCalcleOrder} className="bg-green-400 py-2 px-4 rounded flex items-center justify-center"><PiArrowUDownRightBold className="mr-1" /> No</button>
+          </div>
+        </div>
+
+
+      }
+
+
     </div>
   );
 }
