@@ -19,6 +19,8 @@ import AdminLayout from './shopping/admin/AdminLayout'
 import UpdateProduct from './shopping/admin/UpdateProduct'
 import ShopCart from './shopping/ShopCart'
 import ShoppingWrapper from './shopping/ShoppingWrapper'
+import PdfToWord from './page-converter/PdfToWord'
+import WordtoPdf from './page-converter/WordtoPdf'
 
 
 function Router() {
@@ -42,6 +44,8 @@ function Router() {
       <Route path='/shophome' element={<ShopHome />} />
       <Route path='/admin' element={<AdminLayout />} />
       <Route path='/editPro/:id' element={<UpdateProduct/>}/>
+      <Route path='/pdfToWord' element={<PdfToWord/>}/>
+      <Route path='/wordToPdf' element={<WordtoPdf/>} />
      
       
     </Routes>

@@ -134,7 +134,7 @@ function MyOrder() {
 
 
       {delModal &&
-        <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center backdrop-filter backdrop-blur-md ">
+        <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center backdrop-filter backdrop-blur ">
           <div className="bg-white p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 rounded shadow-lg flex flex-col sm:flex-row justify-around max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-4xl">
             <button onClick={handleCancelAll} className="bg-red-400 py-2 px-4 mb-2 sm:mb-0 sm:mr-2 rounded flex items-center justify-center"><MdDeleteForever className="mr-1" /> Yes</button>
             <button onClick={handleNobuttonForCalcleOrder} className="bg-green-400 py-2 px-4 rounded flex items-center justify-center"><PiArrowUDownRightBold className="mr-1" /> No</button>

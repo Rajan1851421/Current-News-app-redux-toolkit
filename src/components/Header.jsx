@@ -2,12 +2,16 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { FaFilePdf } from "react-icons/fa6";
+import { FcNews } from "react-icons/fc";
+import { BsFiletypeJson } from "react-icons/bs";
+import { FaFileWord } from "react-icons/fa";
 
 
 
 
 function App() {
-    
+
 
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [isOpration, setIsOperation] = useState(false)
@@ -80,11 +84,17 @@ function App() {
                             <i className="fa-solid fa-screwdriver-wrench mx-1 text-red-600"></i>Operation <i className="fa-solid fa-angle-down mx-1 "></i>
                             {isOpration && (
                                 <div className="bg-gray-600 absolute mt-3 p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
-                                    <Link to="/news" className="font-bold hover:border-b hover:text-white">
-                                        <i className="fa-regular fa-newspaper mx-1 text-[#3730A3] "></i>News
-                                    </Link> <br />
-                                    <Link to="/json" className="font-bold  hover:border-b hover:text-white">
-                                        <i className="fa-solid fa-house-chimney-window mx-1 text-blue-900"></i>JSON DATA
+                                    <Link to="/news" className="font-bold hover:border-b hover:text-white flex items-center">
+                                        <FcNews className='mr-1' />News
+                                    </Link>
+                                    <Link to="/json" className="font-bold hover:border-b hover:text-white flex items-center">
+                                        <BsFiletypeJson className='mr-1 text-yellow-600' />JSON DATA
+                                    </Link>
+                                    <Link to="/pdfToWord" className="font-bold hover:border-b hover:text-white flex items-center">
+                                        <FaFilePdf className='mr-1 text-red-600' /> PDF To Word
+                                    </Link>
+                                    <Link to="/wordToPdf" className="font-bold hover:border-b hover:text-white flex items-center">
+                                        <FaFileWord className='mr-1 text-blue-700' /> Word To Pdf
                                     </Link>
                                 </div>
                             )}
@@ -116,9 +126,9 @@ function App() {
                         <Link to="/pixelImage" className="font-bold hover:text-blue-900 hover:border-b ">
                             <i className="fa-solid fa-address-card mx-1 text-[#b91c1c] "></i>Gallery
                         </Link>
-                        
+
                         <Link to="/shopping" className="font-bold hover:text-blue-900 hover:border-b ">
-                        <i className="fa-solid fa-sack-dollar mx-1 text-blue-600"></i>Shopping
+                            <i className="fa-solid fa-sack-dollar mx-1 text-blue-600"></i>Shopping
                         </Link>
                         <Link to="/register" className="inline-flex items-center font-bold hover:text-blue-900 hover:border-b">
                             <i className="fas fa-user mx-1 text-yellow-500"></i>
@@ -139,12 +149,12 @@ function App() {
 
             {/* Mobile Menu (Hidden by default) */}
             {isMobileMenuOpen && (
-                <div className="md:hidden bg-gray-800 text-white p-4 absolute top-14 left-0 w-full z-1500  sticky top-15">
-                    <Link to="/" onClick={closeMobileMenu} className= "border-b border-gray-600 block font-bold hover:text-blue-900  py-2"><i className="fa-solid fa-house-chimney-window mx-1 text-blue-900" ></i>Home</Link>
+                <div className="md:hidden bg-gray-400 text-white p-4 absolute top-14 left-0 w-full z-1500  sticky top-15">
+                    <Link to="/" onClick={closeMobileMenu} className="border-b border-gray-600 block font-bold hover:text-blue-900  py-2"><i className="fa-solid fa-house-chimney-window mx-1 text-blue-900" ></i>Home</Link>
                     <Link to="/editor" onClick={closeMobileMenu} className="border-b border-gray-600 block font-bold hover:text-blue-900 py-2 hover:border-b">
                         <i className="fa-solid fa-text-height mx-1 text-green-600"></i>Text Editor
-                    </Link> 
-                    <Link 
+                    </Link>
+                    <Link
                         to="#"
                         onClick={toggleDropdownOperation}
                         className="font-bold hover:border-b relative  border-b border-gray-600 block py-2" >
@@ -176,13 +186,19 @@ function App() {
                                     <i className="fa-solid fa-calculator text-red-600 mx-1 my-2 "></i>Calculator
                                 </Link> <br />
                                 <Link onClick={closeMobileMenu} to="/agecalculator" className="font-bold hover:text-blue-900  hover:border-b ">
-                                <i className="fa-solid fa-person-half-dress text-red-600 mx-1"></i>Age Calculator
+                                    <i className="fa-solid fa-person-half-dress text-red-600 mx-1"></i>Age Calculator
                                 </Link>
+                                  <Link onClick={closeMobileMenu} to="/pdfToWord" className="font-bold hover:border-b hover:text-white flex items-center">
+                                  <FaFilePdf className='mx-1 text-red-600' /> PDF To Word
+                              </Link>
+                              <Link onClick={closeMobileMenu} to="/wordToPdf" className="font-bold hover:border-b hover:text-white flex items-center">
+                                  <FaFileWord className='mx-1' /> Word To Pdf
+                              </Link>
                             </div>
                         )}
                     </Link>
-                     <Link to="/pixelImage" onClick={closeMobileMenu} className="border-b border-gray-600 block font-bold hover:text-blue-900  py-2"><i className="fa-solid fa-address-card mx-1 text-[#b91c1c] "></i>Gallery</Link>
-                     <Link to="/shopping" onClick={closeMobileMenu} className="border-b border-gray-600 block font-bold hover:text-blue-900  py-2"><i className="fa-solid fa-sack-dollar mx-1 text-blue-600"></i>Shopping</Link>
+                    <Link to="/pixelImage" onClick={closeMobileMenu} className="border-b border-gray-600 block font-bold hover:text-blue-900  py-2"><i className="fa-solid fa-address-card mx-1 text-[#b91c1c] "></i>Gallery</Link>
+                    <Link to="/shopping" onClick={closeMobileMenu} className="border-b border-gray-600 block font-bold hover:text-blue-900  py-2"><i className="fa-solid fa-sack-dollar mx-1 text-blue-600"></i>Shopping</Link>
                     <Link to="/register" onClick={closeMobileMenu} className="border-b border-gray-600 block font-bold hover:text-blue-900  py-2"><i className="fa-solid fa-user mx-1 text-yellow-500"></i>Register {Allusers.length} </Link>
                 </div>
             )}
