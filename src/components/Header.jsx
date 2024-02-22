@@ -167,6 +167,12 @@ function App() {
                                 <Link onClick={closeMobileMenu} to="/json" className="font-bold  hover:border-b hover:text-white">
                                     <i className="fa-solid fa-house-chimney-window mx-1 text-blue-900"></i>JSON DATA
                                 </Link>
+                                <Link onClick={closeMobileMenu} to="/pdfToWord" className="font-bold hover:border-b hover:text-white flex items-center">
+                                    <FaFilePdf className='mx-1 text-red-600' /> PDF To Word
+                                </Link>
+                                <Link onClick={closeMobileMenu} to="/wordToPdf" className="font-bold hover:border-b hover:text-white flex items-center">
+                                    <FaFileWord className='mx-1' /> Word To Pdf
+                                </Link>
                             </div>
                         )}
                     </Link>
@@ -188,12 +194,7 @@ function App() {
                                 <Link onClick={closeMobileMenu} to="/agecalculator" className="font-bold hover:text-blue-900  hover:border-b ">
                                     <i className="fa-solid fa-person-half-dress text-red-600 mx-1"></i>Age Calculator
                                 </Link>
-                                  <Link onClick={closeMobileMenu} to="/pdfToWord" className="font-bold hover:border-b hover:text-white flex items-center">
-                                  <FaFilePdf className='mx-1 text-red-600' /> PDF To Word
-                              </Link>
-                              <Link onClick={closeMobileMenu} to="/wordToPdf" className="font-bold hover:border-b hover:text-white flex items-center">
-                                  <FaFileWord className='mx-1' /> Word To Pdf
-                              </Link>
+
                             </div>
                         )}
                     </Link>

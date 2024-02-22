@@ -1,7 +1,7 @@
 import React from 'react'
 import './Main.css'
 import Header from './Header/Header'
-import Body from './body/Body'
+import Body from './Body/Body'
 
 
 
