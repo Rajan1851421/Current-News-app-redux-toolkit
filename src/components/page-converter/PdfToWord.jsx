@@ -18,8 +18,8 @@ function PdfToWord() {
 
 
     return (
-        <div className='flex justify-center items-center sm:my-5 md:my-10 xl:my-15 xxl:my-20'>
-            <div className='p-5  w-11/12 md:w-1/2 bg-red-400 shadow-lg '>
+        <div className='h-screen flex justify-center items-center sm:my-5 md:my-10 xl:my-15 xxl:my-20'>
+            <div className='p-5  w-11/12 md:w-1/2 bg-red-400 shadow-lg rounded-md mt-[-150px]'>
                 <form action="/upload" method="post" encType="multipart/form-data" className="space-y-4 flex flex-col justify-center items-center mt-3">
 
                     <h2 className="text-2xl font-bold mb-4">Select a PDF File</h2>
