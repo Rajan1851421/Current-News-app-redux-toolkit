@@ -133,14 +133,14 @@ function App() {
                         <Link to="/register" className="inline-flex items-center font-bold hover:text-blue-900 hover:border-b">
                             <i className="fas fa-user mx-1 text-yellow-500"></i>
                             Register
-                            <span class="absolute top-0 end-0 inline-flex items-center py-0.5 px-1.5 rounded-full text-xs font-medium transform -translate-y-1/2 translate-x-1/2 bg-red-500 text-white">{Allusers.length}</span>
+                            <span className="absolute top-0 end-0 inline-flex items-center py-0.5 px-1.5 rounded-full text-xs font-medium transform -translate-y-1/2 translate-x-1/2 bg-red-500 text-white">{Allusers.length}</span>
                         </Link>
                     </div>
 
                     {/* Mobile Menu Button */}
                     <button className="md:hidden focus:outline-none" onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}>
                         <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                         </svg>
                     </button>
 

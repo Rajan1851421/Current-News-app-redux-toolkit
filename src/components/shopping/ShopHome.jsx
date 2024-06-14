@@ -24,6 +24,7 @@ function ShopHome() {
     return (
         <>
             <div className="container mx-auto mt-20">
+
                 <div className='md:w-1/2 lg:w-1/2 xl:w-1/2 sm:w-[90%] mx-auto'>
                     <label for="category" className="block text-sm font-medium text-gray-600">Select for Search</label>
                     <select

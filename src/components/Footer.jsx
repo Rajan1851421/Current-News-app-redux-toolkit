@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { Link } from 'react-router-dom'
 
 
@@ -40,10 +40,10 @@ function Footer() {
                                         </li>
                                         <li>
                                             <Link
-                                                to="https://lambent-squirrel-ba4262.netlify.app/"
+                                                to="https://uttamtravels.netlify.app/"
                                                 className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
                                                 target="_blank"
-                                                rel="noopener noreferrer">BG Changer
+                                                rel="noopener noreferrer">Uttam Travels <span className='text-red-600'>(Under Construction)</span>
                                             </Link>
                                         </li>
                                         <li>

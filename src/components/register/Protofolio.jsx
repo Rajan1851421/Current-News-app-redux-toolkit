@@ -46,6 +46,7 @@ function Portfolio() {
                 <li className="text-[#1D4ED8] font-medium ">HTML5</li>
                 <li className="text-[#92400E] font-medium ">CSS3</li>
                 <li className="text-[#9D174D] font-medium ">JavaScript</li>
+                <li className="font-medium text-[#1D4ED8] ">Node Js & Express Js</li>
               </ul>
             </div>
             <div className="p-2">
@@ -53,6 +54,7 @@ function Portfolio() {
                 <li className="font-medium text-[#111827] ">React JS</li>
                 <li className="font-medium text-[#7F1D1D] ">Redux Toolkit</li>
                 <li className="font-medium text-[#1D4ED8] ">Tailwind CSS, Bootstrap</li>
+                <li className="text-[#9D174D] font-medium ">MongoDB</li>
               </ul>
             </div>
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4">Contact</h2>

@@ -29,7 +29,8 @@
     "react-router-dom": "^6.20.1",
     "react-simple-code-editor": "^0.13.1",
     "react-simple-star-rating": "^5.1.7",
-    "react-to-print": "^2.14.15"
+    "react-to-print": "^2.14.15",
+    "rollup": "^4.13.2"
   },
   "devDependencies": {
     "@editorjs/checklist": "^1.6.0",
