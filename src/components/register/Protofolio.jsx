@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+
 import { Link } from 'react-router-dom';
 
 function Portfolio() {
@@ -60,7 +60,7 @@ function Portfolio() {
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4">Contact</h2>
           </div>
           <span className="text-red-600">
-            <i class="fa-regular fa-envelope fa-beat"></i>{' '}
+            <i className="fa-regular fa-envelope fa-beat"></i>{' '}
           </span>
           <Link
             to="https://mail.google.com/mail/u/0/#inbox"
@@ -76,7 +76,7 @@ function Portfolio() {
             rel="linkedIN"
             className="text-gray-600"
           >
-            <i class="fa-brands fa-linkedin" style={{ color: ' #125fe2' }}></i>{' '}
+            <i className="fa-brands fa-linkedin" style={{ color: ' #125fe2' }}></i>{' '}
             &nbsp;https://www.linkedin.com/in/rajan-prajapati-717337192/
           </Link>
           <br />
@@ -86,9 +86,9 @@ function Portfolio() {
             rel="no"
             className="text-gray-600"
           >
-            <i class="fa-brands fa-whatsapp" style={{ color: '#34da07' }}></i>{' '}
+            <i className="fa-brands fa-whatsapp" style={{ color: '#34da07' }}></i>{' '}
             &nbsp;
-            <i class="fa-solid fa-mobile" style={{ color: '#f0059a' }}></i>
+            <i className="fa-solid fa-mobile" style={{ color: '#f0059a' }}></i>
             +91-7460033731
           </Link>
           <br />
@@ -98,7 +98,7 @@ function Portfolio() {
             rel="No github"
             className="text-gray-600"
           >
-            <i class="fa-brands fa-square-github fa-shake" style={{ color: '#0c0d0d' }}></i>{' '}
+            <i className="fa-brands fa-square-github fa-shake" style={{ color: '#0c0d0d' }}></i>{' '}
             &nbsp;Github Profile
           </Link>
           <br />
