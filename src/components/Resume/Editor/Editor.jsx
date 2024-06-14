@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { X } from "react-feather";
 import InputControl from "../InputControl/InputControl";
 

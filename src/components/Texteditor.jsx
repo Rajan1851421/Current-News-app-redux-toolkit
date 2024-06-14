@@ -81,7 +81,7 @@ function Texteditor() {
             <div className=" my-2 lg:w-[75%] md:w-[75%] xl:w-[75%] sm:w-full md:mx-auto lg:mx-auto xl:mx-auto sm:mx-2 h-screen">
                 <label
                     htmlFor="message"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-900"
                 >
                     Your Text (Length: {textLength}, Words: {wordCount})
                 </label>
