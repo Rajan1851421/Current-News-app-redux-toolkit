@@ -2,14 +2,21 @@
 import { Link } from 'react-router-dom'
 
 
+
 function Footer() {
+
+
+
+
+
     return (
         <>
-            
+
             <footer className="absolute bg-[#34d399] pt-8 pb-6 -z-10 w-full">
+             
                 <div className="container mx-auto px-4">
                     <div className="flex flex-wrap text-left lg:text-left">
-                     
+
                         <div className="w-full lg:w-6/12 px-4">
                             <h4 className="text-3xl fonat-semibold text-blueGray-700">Its my Simple Portfolio</h4>
                             <h5 className="text-lg mt-0 mb-2 text-blueGray-600">
@@ -36,7 +43,7 @@ function Footer() {
                                                 target="_blank"
                                                 rel="noopener noreferrer">Clock
                                             </Link>
-                                            
+
                                         </li>
                                         <li>
                                             <Link
