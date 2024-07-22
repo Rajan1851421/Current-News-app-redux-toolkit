@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 function Portfolio() {
@@ -25,9 +25,15 @@ function Portfolio() {
   return (
     <div className="container mx-auto p-4 bg-[#eeeef0] my-3 rounded-lg">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="p-4">
+        <div className="p-4 flex flex-col ">
           {/* Your content for the frist part */}
-          <img className="rounded-full" src="https://avatars.githubusercontent.com/u/105105537?v=4" alt="" />
+          <img className="rounded-full h-[350px] w-[350px] mx-auto " src="https://avatars.githubusercontent.com/u/105105537?v=4" alt="" />
+          <div className="flex flex-col items-center justify-center gap-5 mt-6 md:flex-row">
+            <Link target="_blank" to="https://drive.google.com/file/d/1lM_Y-q6UvZFqmxFsHsmi-2GxA-XTbU8r/view?usp=sharing" className="inline-block w-auto text-center min-w-[200px] px-6 py-4 text-white transition-all rounded-md shadow-xl sm:w-auto bg-gradient-to-r from-blue-600 to-blue-500 hover:bg-gradient-to-b dark:shadow-blue-900 shadow-blue-200 hover:shadow-2xl hover:shadow-blue-400 hover:-tranneutral-y-px ">
+              View Resume
+          </Link>
+
+          </div>
         </div>
         {/* second Part */}
         <div className="p-4">
