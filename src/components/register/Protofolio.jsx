@@ -14,11 +14,11 @@ function Portfolio() {
         setTimeout(() => {
           setCurrentElement('');
           setCurrentIndex(0);
-        }, 300);
+        }, 150);
       } else {
         setCurrentIndex((prev) => prev + 1);
       }
-    }, 300);
+    }, 150);
 
     return () => clearInterval(intervalId);
   }, [currentIndex]);
@@ -27,9 +27,10 @@ function Portfolio() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="p-4 flex flex-col ">
           {/* Your content for the frist part */}
-          <img className="rounded-full h-[350px] w-[350px] mx-auto " src="https://avatars.githubusercontent.com/u/105105537?v=4" alt="" />
+          <img className="rounded-full h-[200px] w-[200px]  md:h-[350px] md:w-[350px] mx-auto shadow-lg " src="https://avatars.githubusercontent.com/u/105105537?v=4" alt="" />
           <div className="flex flex-col items-center justify-center gap-5 mt-6 md:flex-row">
-            <Link target="_blank" to="https://drive.google.com/file/d/1lM_Y-q6UvZFqmxFsHsmi-2GxA-XTbU8r/view?usp=sharing" className="inline-block w-auto text-center min-w-[200px] px-6 py-4 text-white transition-all rounded-md shadow-xl sm:w-auto bg-gradient-to-r from-blue-600 to-blue-500 hover:bg-gradient-to-b dark:shadow-blue-900 shadow-blue-200 hover:shadow-2xl hover:shadow-blue-400 hover:-tranneutral-y-px ">
+            <Link target="_blank" to="https://drive.google.com/file/d/1lM_Y-q6UvZFqmxFsHsmi-2GxA-XTbU8r/view?usp=sharing" 
+            className="inline-block text-center w-[100px] md:min-w-[200px] px-2 py-1 md:px-6 md:py-4 text-white transition-all rounded-md shadow-xl sm:w-auto bg-gradient-to-r from-blue-600 to-blue-500 hover:bg-gradient-to-b dark:shadow-blue-900 shadow-blue-200 hover:shadow-2xl hover:shadow-blue-400 hover:-tranneutral-y-px ">
               View Resume
           </Link>
 
@@ -39,7 +40,7 @@ function Portfolio() {
         <div className="p-4">
           {/* Your content for the first part */}
           <div className="text-center  h-16">
-            <h2 className="text-4xl md:text-4xl lg:text-4xl font-bold text-[#ea580c] uppercase">{currentElement}</h2>
+            <h2 className="text-2xl md:text-4xl lg:text-4xl font-bold text-[#ea580c] uppercase">{currentElement}</h2>
 
           </div>
           <h2 className="text-center text-sm text-blue-700 mb-4 capitalize sm:mb-3 font-bold ">Web Developer | Frontend Engineer | Backend Engineer</h2>
