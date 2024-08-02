@@ -33,7 +33,7 @@ function ShopNav() {
         <>
 
             <div className='container '>
-                <ul className="flex bg-[#064E3B] bg-opacity-50 p-1 fixed top-28 z-10 ">
+                <ul className="flex bg-[#0e392d] p-1 fixed top-28 z-10 w-full md:w-[40%]  justify-between ">
                     <li className="mr-3">
                         <Link className="text-white font-bold hover:text-blue-800  rounded-lg flex items-center shadow-lg p-1"
                             onClick={() => handleMenu('home')} to=''>

@@ -9,12 +9,12 @@ export default function App() {
 
   return (
     <>
-      <div className='h-screen'>
-        <p className='text-center'>Please wait for slow Loading...</p>
-        <Lottie style={style} animationData={load} loop={true} />
-      </div>
-
-
-    </>
+    <div className="h-screen flex justify-center items-center">
+        <div className="text-center">
+            <p>Please wait for slow Loading...</p>
+            <Lottie style={style} animationData={load} loop={true} />
+        </div>
+    </div>
+</>
   );
 }

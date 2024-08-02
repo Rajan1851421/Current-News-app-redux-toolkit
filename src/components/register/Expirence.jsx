@@ -26,7 +26,7 @@ function Expirence() {
                     </ul>
                     <ul className='list-disc font-bold text-gray-800 mx-2'>
                         <li>
-                            <Link to='https://cricktick.netlify.app/ ' target='_blank' rel='no' >View cricket related news and other also&nbsp; <span className='text-blue-800'>https://cricktick.netlify.app/</span> </Link>
+                            <Link to='https://cricktick.netlify.app ' target='_blank' rel='no' >View cricket related news and other also&nbsp; <span className='text-blue-800'>https://cricktick.netlify.app/</span> </Link>
                         </li>
                     </ul>
 
