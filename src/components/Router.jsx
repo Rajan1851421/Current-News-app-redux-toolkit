@@ -21,6 +21,7 @@ import ShopCart from './shopping/ShopCart'
 import ShoppingWrapper from './shopping/ShoppingWrapper'
 import PdfToWord from './page-converter/PdfToWord'
 import WordtoPdf from './page-converter/WordtoPdf'
+import Gemini from './Gemini'
 
 
 function Router() {
@@ -46,6 +47,7 @@ function Router() {
       <Route path='/editPro/:id' element={<UpdateProduct/>}/>
       <Route path='/pdfToWord' element={<PdfToWord/>}/>
       <Route path='/wordToPdf' element={<WordtoPdf/>} />
+      <Route path='/gemini' element= {<Gemini/> } />
      
       
     </Routes>

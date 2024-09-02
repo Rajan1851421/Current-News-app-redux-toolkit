@@ -6,6 +6,7 @@ import { FaFilePdf } from "react-icons/fa6";
 import { FcNews } from "react-icons/fc";
 import { BsFiletypeJson } from "react-icons/bs";
 import { FaFileWord } from "react-icons/fa";
+// import { SiGooglegemini } from "react-icons/si";
 
 
 
@@ -71,6 +72,11 @@ function App() {
                         <Link to="/" className="font-bold hover:text-blue-900  hover:border-b">
                             <i className="fa-solid fa-house-chimney-window mx-1 text-blue-900"></i>Home
                         </Link>
+                        <Link to="/gemini" className="font-bold hover:text-blue-900 hover:border-b ">
+                            
+                            <i class="fa-regular fa-star  text-[yellow] mx-1 "></i>
+                            Gemini
+                        </Link>
 
                         <Link to="/editor" className="font-bold hover:text-blue-900  hover:border-b">
                             <i className="fa-solid fa-text-height mx-1 text-green-600"></i>Text Editor
@@ -100,9 +106,10 @@ function App() {
                             )}
                         </Link>
 
-                        <Link to="/resume" className="font-bold hover:text-blue-900 hover:border-b ">
+                        {/* <Link to="/resume" className="font-bold hover:text-blue-900 hover:border-b ">
                             <i className="fa-solid fa-pen text-[#4C1D95] mx-1 "></i>Resume
-                        </Link>
+                        </Link> */}
+                        
 
 
                         <Link
@@ -179,7 +186,10 @@ function App() {
 
 
 
-                    <Link to="/resume" onClick={closeMobileMenu} className="border-b border-gray-600 block font-bold hover:text-blue-900 my-1  py-2"><i className="fa-solid fa-pen text-[#4C1D95] mx-1 "></i>Resume</Link>
+                    <Link to="/gemini" onClick={closeMobileMenu} 
+                    className="border-b border-gray-600 block font-bold hover:text-blue-900 my-1  py-2">
+                        <i class="fa-regular fa-star  text-[yellow] mx-1 "></i>Gemini</Link>
+                    {/* <Link to="/resume" onClick={closeMobileMenu} className="border-b border-gray-600 block font-bold hover:text-blue-900 my-1  py-2"><i className="fa-solid fa-pen text-[#4C1D95] mx-1 "></i>Resume</Link> */}
                     <Link
                         to="#"
                         onClick={toggleDropdown}
