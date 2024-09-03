@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { FaArrowUp } from "react-icons/fa6";
+import '../App'
 
 
 
@@ -10,7 +11,7 @@ function Gemini() {
     const [loading, setLoading] = useState(false);
     const [currentTime, setCurrentTime] = useState('');
     const [status, setStatus] = useState('')
-    
+
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -87,7 +88,7 @@ function Gemini() {
                             </p>}
                             <div
                                 className="w-1/2 bg-[#27272A] rounded-md text-white p-4
-                                h-[400px] overflow-hidden overflow-y-auto 
+                                h-[400px] overflow-hidden overflow-y-auto overflow-x-auto
                                 "
                                 style={{
                                     scrollbarWidth: 'none', /* For Firefox */
@@ -95,9 +96,9 @@ function Gemini() {
                                 }}
                             >
                                 {data.split('\n').map((line, index) => (
-                                    <p key={index} className="mb-2">
-                                        {line}
-                                    </p>
+                                    <div key={index} className="mb-2 typewriter">
+                                        <p className="typewriter-text">{line}</p>
+                                    </div>
                                 ))}
                             </div>
 
@@ -172,7 +173,7 @@ function Gemini() {
                             className="flex-grow bg-transparent text-white placeholder-gray-400 px-4 border-none focus:outline-none focus:border-transparent"
                         />
                         <FaArrowUp onClick={handleSubmit} className="text-gray-400 mx-2 p-2 cursor-pointer text-4xl border rounded-full " />
-                        
+
                     </div>
 
                 </div>
