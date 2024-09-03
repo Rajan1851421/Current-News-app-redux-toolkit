@@ -1,18 +1,56 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faVolumeHigh } from '@fortawesome/free-solid-svg-icons';
+import { FaArrowUp } from "react-icons/fa6";
+
+
 
 function Gemini() {
     const [question, setQuestion] = useState('');
     const [data, setData] = useState('');
     const [loading, setLoading] = useState(false);
+    const [currentTime, setCurrentTime] = useState('');
+    const [status, setStatus] = useState('')
+    
 
-    useEffect(()=>{
-        window.scrollTo(0,0)
-    },[data])
+    useEffect(() => {
+        window.scrollTo(0, 0)
+        const getCurrentTime = () => {
+            const now = new Date();
+            // Formatting time as HH:MM:SS
+            const hours = now.getHours();
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            const formattedHours = String(hours % 12 || 12).padStart(2, '0');
+            const ampm = hours >= 12 ? 'PM' : 'AM';
 
-    const handleSubmit = () => {      
+            // Log appropriate message based on the time
+            if (hours >= 0 && hours < 12) {
+                // console.log('Good Morning');
+                setStatus("Good Morning")
+            } else {
+                // console.log('Good Evening');
+                setStatus("Good Evening")
+            }
+
+            return `${formattedHours}:${minutes}:${seconds} ${ampm}`;
+        };
+
+        // Set initial time on page load
+        setCurrentTime(getCurrentTime());
+
+        // Optionally, you can update the time every second
+        const timerId = setInterval(() => {
+            setCurrentTime(getCurrentTime());
+        }, 1000);
+
+        // Clean up the interval timer on component unmount
+        return () => clearInterval(timerId);
+    }, []);
+
+
+
+
+    const handleSubmit = () => {
         setLoading(true);
         axios.post('https://backend-gemini.vercel.app/getResponse', { question })
             .then(response => {
@@ -36,50 +74,111 @@ function Gemini() {
     };
 
     return (
-        <div className='flex flex-col justify-center mx-2 md:mx-10 mt-1 md:mt-5 h-screen'>
-            {data && (
-                <div>
-                    <textarea
-                        name="userInput"
-                        rows="10"
-                        value={data}
-                        readOnly
-                        className="w-full bg-gray-900 shadow-xl shadow-indigo-500/50 rounded-md text-white p-4 border-purple-400 outline-none"
-                        style={{
-                            scrollbarWidth: 'none', /* For Firefox */
-                            msOverflowStyle: 'none', /* For Internet Explorer and Edge */
-                        }}
-                    ></textarea>
-                    <button
-                        onClick={handleSpeak}
-                        className="bg-blue-500 text-white px-4 py-2 my-2 rounded-lg hover:bg-blue-600 focus:outline-none"
-                    >
-                        <i class="fa-solid fa-volume-high"></i>
-                    </button>
-                </div>
-            )}
+        <>
+            <div className='bg-[#1C1917] mt-[-20px] fixed top-0 left-0 w-full h-screen '>
 
-            <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden">
-                <textarea
-                    required
-                    placeholder="Type your message..."
-                    className="flex-grow p-3 text-gray-900 placeholder-gray-500 border-none outline-none"
-                    value={question}
-                    onChange={(e) => setQuestion(e.target.value)}
-                ></textarea>
-            </div>
+                <div className='flex flex-col justify-center mx-2 md:mx-10 mt-1 md:mt-5 h-screen '>
+                    {data ? (
+                        <div className='flex flex-col justify-center items-center '>
+                            {question && <p className='text-start text-white border border-white
+                            rounded-md px-2 py-1 my-1
+                            ' >
+                                {question.slice(0, 20)}
+                            </p>}
+                            <div
+                                className="w-1/2 bg-[#27272A] rounded-md text-white p-4
+                                h-[400px] overflow-hidden overflow-y-auto 
+                                "
+                                style={{
+                                    scrollbarWidth: 'none', /* For Firefox */
+                                    msOverflowStyle: 'none', /* For Internet Explorer and Edge */
+                                }}
+                            >
+                                {data.split('\n').map((line, index) => (
+                                    <p key={index} className="mb-2">
+                                        {line}
+                                    </p>
+                                ))}
+                            </div>
 
-            <div className='flex justify-center'>
-                <div className="flex max-w-sm rounded-xl bg-gradient-to-tr from-pink-600 to-blue-500 p-0.5 shadow-lg my-2 justify-center">
-                    <button
-                        onClick={handleSubmit}
-                        className="flex-1 font-bold text-xl bg-gray-800 px-6 py-3 rounded-xl"
-                    >
-                        {loading ? "Please Wait .." : "Submit Your Query"}
-                    </button>
+                        </div>
+                    ) : (
+                        <div className='w-[90%] mx-auto text-white mt-[-120px]  ' >
+                            <h1 className='font-extrabold py-4 text-transparent text-6xl bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 '>Hello , <span className='mx-1'>{status}</span>
+
+                            </h1>
+                            <p className='text-xl font-bold mt-4' >You can find everything use this AI features </p>
+                            {/* card */}
+                            <div className="">
+
+                                <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 mt-4 lg:px-8">
+                                    <div className="grid grid-cols-1 gap-5 sm:grid-cols-4 mt-4">
+                                        <div className="bg-white overflow-hidden shadow sm:rounded-lg dark:bg-gray-900">
+                                            <div className="px-4 py-5 sm:p-6">
+                                                <dl>
+                                                    <dt className="text-sm leading-5 font-medium text-gray-500 truncate dark:text-gray-400">Total free
+                                                        servers</dt>
+                                                    <dd className="mt-1 text-3xl leading-9 font-semibold text-indigo-600 dark:text-indigo-400">1.6M</dd>
+                                                </dl>
+                                            </div>
+                                        </div>
+                                        <div className="bg-white overflow-hidden shadow sm:rounded-lg dark:bg-gray-900">
+                                            <div className="px-4 py-5 sm:p-6">
+                                                <dl>
+                                                    <dt className="text-sm leading-5 font-medium text-gray-500 truncate dark:text-gray-400">Servers a
+                                                        month</dt>
+                                                    <dd className="mt-1 text-3xl leading-9 font-semibold text-indigo-600 dark:text-indigo-400">19.2K
+                                                    </dd>
+                                                </dl>
+                                            </div>
+                                        </div>
+                                        <div className="bg-white overflow-hidden shadow sm:rounded-lg dark:bg-gray-900">
+                                            <div className="px-4 py-5 sm:p-6">
+                                                <dl>
+                                                    <dt className="text-sm leading-5 font-medium text-gray-500 truncate dark:text-gray-400">Servers a
+                                                        week</dt>
+                                                    <dd className="mt-1 text-3xl leading-9 font-semibold text-indigo-600 dark:text-indigo-400">4.9K</dd>
+                                                </dl>
+                                            </div>
+                                        </div>
+                                        <div className="bg-white overflow-hidden shadow sm:rounded-lg dark:bg-gray-900">
+                                            <div className="px-4 py-5 sm:p-6">
+                                                <dl>
+                                                    <dt className="text-sm leading-5 font-medium text-gray-500 truncate dark:text-gray-400">Total users
+                                                    </dt>
+                                                    <dd className="mt-1 text-3xl leading-9 font-semibold text-indigo-600 dark:text-indigo-400">166.7K
+                                                    </dd>
+                                                </dl>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    )
+                    }
+
+
+
+
+
+                    <div className="flex items-center bg-gray-800 rounded-full p-2 shadow-lg fixed bottom-10 left-[5%] w-[90%] ">
+                        <input
+                            value={question}
+                            onChange={(e) => setQuestion(e.target.value)}
+                            type="text"
+                            placeholder="Enter a prompt here"
+                            className="flex-grow bg-transparent text-white placeholder-gray-400 px-4 border-none focus:outline-none focus:border-transparent"
+                        />
+                        <FaArrowUp onClick={handleSubmit} className="text-gray-400 mx-2 p-2 cursor-pointer text-4xl border rounded-full " />
+                        
+                    </div>
+
                 </div>
             </div>
-        </div>
+        </>
+
     );
 }
 
