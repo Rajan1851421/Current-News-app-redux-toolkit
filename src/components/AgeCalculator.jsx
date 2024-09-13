@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import AgeCalModal from './AgeCalModal';
 
 function AgeCalculator() {
+    window.scrollTo(0,0)
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [dob, setDOB] = useState('');
     const [ageDate, setAgeDate] = useState('');

@@ -32,7 +32,10 @@ function Portfolio() {
             <img className="rounded-full h-[200px] w-[200px]  md:h-[350px] md:w-[350px] mx-auto shadow-lg " src="https://avatars.githubusercontent.com/u/105105537?v=4" alt="" />
             <div className="flex flex-col items-center justify-center gap-5 mt-6 md:flex-row">
               <Link target="_blank" to="https://drive.google.com/file/d/1lM_Y-q6UvZFqmxFsHsmi-2GxA-XTbU8r/view?usp=sharing"
-                className="inline-block text-center w-[100px] md:min-w-[200px] px-2 py-1 md:px-6 md:py-4 text-white transition-all rounded-md shadow-xl sm:w-auto bg-gradient-to-r from-blue-600 to-blue-500 hover:bg-gradient-to-b dark:shadow-blue-900 shadow-blue-200 hover:shadow-2xl hover:shadow-blue-400 hover:-tranneutral-y-px ">
+                className="inline-block text-center  w-1/2 md:w-[100px] backdrop: md:min-w-[200px] px-2 py-1 md:px-6 md:py-4
+                 text-white transition-all rounded-md shadow-md sm:w-auto bg-gradient-to-r from-blue-600
+                  to-blue-500 hover:bg-gradient-to-b dark:shadow-blue-900 shadow-blue-200 hover:shadow-2xl
+                   hover:shadow-blue-400 hover:-tranneutral-y-px ">
                 View Resume
               </Link>
 
