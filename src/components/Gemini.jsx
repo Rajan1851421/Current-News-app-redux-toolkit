@@ -44,7 +44,7 @@ function Gemini() {
             if (index < data.length) {
                 setDisplayedText(prev => prev + data[index]);
                 index++;
-                setTimeout(revealText, 50); // Adjust the delay to speed up/slow down the text display
+                setTimeout(revealText, 20); // Adjust the delay to speed up/slow down the text display
             }
         };
 

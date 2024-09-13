@@ -84,28 +84,7 @@ function App() {
                         </Link>
 
 
-                        <Link
-                            to="#"
-                            onClick={toggleDropdownOperation}
-                            className="font-bold hover:border-b relative" >
-                            <i className="fa-solid fa-screwdriver-wrench mx-1 text-red-600"></i>Operation <i className="fa-solid fa-angle-down mx-1 "></i>
-                            {isOpration && (
-                                <div className="bg-gray-600 absolute mt-3 p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
-                                    <Link to="/news" className="font-bold hover:border-b hover:text-white flex items-center">
-                                        <FcNews className='mr-1' />News
-                                    </Link>
-                                    <Link to="/json" className="font-bold hover:border-b hover:text-white flex items-center">
-                                        <BsFiletypeJson className='mr-1 text-yellow-600' />JSON DATA
-                                    </Link>
-                                    <Link to="/pdfToWord" className="font-bold hover:border-b hover:text-white flex items-center">
-                                        <FaFilePdf className='mr-1 text-red-600' /> PDF To Word
-                                    </Link>
-                                    <Link to="/wordToPdf" className="font-bold hover:border-b hover:text-white flex items-center">
-                                        <FaFileWord className='mr-1 text-blue-700' /> Word To Pdf
-                                    </Link>
-                                </div>
-                            )}
-                        </Link>
+                        
 
                         {/* <Link to="/resume" className="font-bold hover:text-blue-900 hover:border-b ">
                             <i className="fa-solid fa-pen text-[#4C1D95] mx-1 "></i>Resume
@@ -161,31 +140,7 @@ function App() {
                     <Link to="/" onClick={closeMobileMenu} className="border-b border-gray-600 block font-bold hover:text-blue-900  py-2"><i className="fa-solid fa-house-chimney-window mx-1 text-blue-900" ></i>Home</Link>
                     <Link to="/editor" onClick={closeMobileMenu} className="border-b border-gray-600 block font-bold hover:text-blue-900 py-2 hover:border-b">
                         <i className="fa-solid fa-text-height mx-1 text-green-600"></i>Text Editor
-                    </Link>
-                    <Link
-                        to="#"
-                        onClick={toggleDropdownOperation}
-                        className="font-bold hover:border-b relative  border-b border-gray-600 block py-2" >
-                        <i className="fa-solid fa-screwdriver-wrench mx-1 text-red-600"></i>Operation <i className="fa-solid fa-angle-down mx-1 "></i>
-                        {isOpration && (
-                            <div className="bg-gray-600 absolute mt-3 p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
-                                <Link onClick={closeMobileMenu} to="/news" className="font-bold hover:border-b hover:text-white">
-                                    <i className="fa-regular fa-newspaper mx-1 text-[#3730A3] "></i>News
-                                </Link> <br />
-                                <Link onClick={closeMobileMenu} to="/json" className="font-bold  hover:border-b hover:text-white">
-                                    <i className="fa-solid fa-house-chimney-window mx-1 text-blue-900"></i>JSON DATA
-                                </Link>
-                                <Link onClick={closeMobileMenu} to="/pdfToWord" className="font-bold hover:border-b hover:text-white flex items-center">
-                                    <FaFilePdf className='mx-1 text-red-600' /> PDF To Word
-                                </Link>
-                                <Link onClick={closeMobileMenu} to="/wordToPdf" className="font-bold hover:border-b hover:text-white flex items-center">
-                                    <FaFileWord className='mx-1' /> Word To Pdf
-                                </Link>
-                            </div>
-                        )}
-                    </Link>
-
-
+                    </Link>                
 
                     <Link to="/gemini" onClick={closeMobileMenu} 
                     className="border-b border-gray-600 block font-bold hover:text-blue-900 my-1  py-2">
