@@ -36,8 +36,9 @@ function Portfolio() {
                  text-white transition-all rounded-md shadow-md sm:w-auto bg-gradient-to-r from-blue-600
                   to-blue-500 hover:bg-gradient-to-b dark:shadow-blue-900 shadow-blue-200 hover:shadow-2xl
                    hover:shadow-blue-400 hover:-tranneutral-y-px ">
-                View Resume
+                View Resume..
               </Link>
+              <Link>Hello</Link>
 
             </div>
           </div>
