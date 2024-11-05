@@ -85,14 +85,14 @@ function App() {
           <div className="hidden md:flex space-x-5 relative">
             <Link
               to="/"
-              className="font-bold hover:text-blue-900  hover:border-b"
+              className="font-bold hover:text-white  hover:border-b"
             >
               <i className="fa-solid fa-house-chimney-window mx-1 text-blue-900 tracking-normal  "></i>
               Home
             </Link>
             <Link
               to="/gemini"
-              className="font-bold hover:text-blue-900 hover:border-b "
+              className="font-bold hover:text-white hover:border-b "
             >
               <i class="fa-regular fa-star  text-[yellow] mx-1 "></i>
               Gemini
@@ -100,15 +100,15 @@ function App() {
 
             <Link
               to="/editor"
-              className="font-bold hover:text-blue-900  hover:border-b"
+              className="font-bold hover:text-white  hover:border-b"
             >
               <i className="fa-solid fa-text-height mx-1 text-green-600"></i>
               Text Editor
             </Link>
 
-            {/* <Link to="/resume" className="font-bold hover:text-blue-900 hover:border-b ">
-                            <i className="fa-solid fa-pen text-[#4C1D95] mx-1 "></i>Resume
-                        </Link> */}
+            <Link to="/game" className="font-bold hover:text-white hover:border-b ">
+                            Game
+                        </Link>
 
             <Link
               to="#"
@@ -140,7 +140,7 @@ function App() {
 
             <Link
               to="/pixelImage"
-              className="font-bold hover:text-blue-900 hover:border-b "
+              className="font-bold hover:text-white hover:border-b "
             >
               <i className="fa-solid fa-address-card mx-1 text-[#b91c1c] "></i>
               Gallery
@@ -148,14 +148,14 @@ function App() {
 
             <Link
               to="/shopping"
-              className="font-bold hover:text-blue-900 hover:border-b "
+              className="font-bold hover:text-white hover:border-b "
             >
               <i className="fa-solid fa-sack-dollar mx-1 text-blue-600"></i>
               Shopping
             </Link>
             <Link
               to="/register"
-              className="inline-flex items-center font-bold hover:text-blue-900 hover:border-b"
+              className="inline-flex items-center font-bold hover:text-white hover:border-b"
             >
               <i className="fas fa-user mx-1 text-yellow-500"></i>
               Register
@@ -215,7 +215,7 @@ function App() {
           >
             <i class="fa-regular fa-star  text-[yellow] mx-1 "></i>Gemini
           </Link>
-          {/* <Link to="/resume" onClick={closeMobileMenu} className="border-b border-gray-600 block font-bold hover:text-blue-900 my-1  py-2"><i className="fa-solid fa-pen text-[#4C1D95] mx-1 "></i>Resume</Link> */}
+          <Link to="/game" onClick={closeMobileMenu} className="border-b border-gray-600 block font-bold hover:text-blue-900 my-1  py-2">Game</Link>
           <Link
             to="#"
             onClick={toggleDropdown}

@@ -12,7 +12,7 @@ import ShopHome from "./shopping/ShopHome";
 import AdminLayout from "./shopping/admin/AdminLayout";
 import UpdateProduct from "./shopping/admin/UpdateProduct";
 import ShoppingWrapper from "./shopping/ShoppingWrapper";
-
+import Game from "./Game"
 import Gemini from "./Gemini";
 
 function Router() {
@@ -31,6 +31,7 @@ function Router() {
       <Route path="/admin" element={<AdminLayout />} />
       <Route path="/editPro/:id" element={<UpdateProduct />} />
       <Route path="/gemini" element={<Gemini />} />
+      <Route path="/game" element={<Game/>}/>
     </Routes>
   );
 }
