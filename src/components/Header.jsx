@@ -139,11 +139,11 @@ function App() {
             </Link>
 
             <Link
-              to="/pixelImage"
+              to="/project"
               className="font-bold hover:text-white hover:border-b "
-            >
-              <i className="fa-solid fa-address-card mx-1 text-[#b91c1c] "></i>
-              Gallery
+            >             
+              <i class="fa-brands fa-r-project mx-1 text-[#b91c1c]  "></i>
+              Projects
             </Link>
 
             <Link
@@ -246,12 +246,12 @@ function App() {
             )}
           </Link>
           <Link
-            to="/pixelImage"
+            to="/project"
             onClick={closeMobileMenu}
             className="border-b border-gray-600 block font-bold hover:text-blue-900  py-2"
           >
             <i className="fa-solid fa-address-card mx-1 text-[#b91c1c] "></i>
-            Gallery
+            Projects
           </Link>
           <Link
             to="/shopping"

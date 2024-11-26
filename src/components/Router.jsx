@@ -14,6 +14,7 @@ import UpdateProduct from "./shopping/admin/UpdateProduct";
 import ShoppingWrapper from "./shopping/ShoppingWrapper";
 import Game from "./Game"
 import Gemini from "./Gemini";
+import Project from "./Project";
 
 function Router() {
   return (
@@ -32,6 +33,7 @@ function Router() {
       <Route path="/editPro/:id" element={<UpdateProduct />} />
       <Route path="/gemini" element={<Gemini />} />
       <Route path="/game" element={<Game/>}/>
+      <Route path='/project' element={<Project/>}/>
     </Routes>
   );
 }

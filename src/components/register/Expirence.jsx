@@ -22,11 +22,14 @@ function Expirence() {
                         <li>I have completed FullStack Devloper course from <strong className='uppercase'>PW skills</strong> Jan 2023 - Dec 2023</li>
                     </ul>
                     <ul className='list-disc font-bold text-gray-800 mx-2 no-select'>
-                        <li>I am currentaly working with  <strong className='uppercase'>Crazy Soft Coder Pvt Ltd.</strong> Aug 2023 - Present</li>
+                        <li>One Year experience in  <strong className='uppercase'>Crazy Soft Coder Pvt Ltd.</strong> Aug 2023 - Oct 2024</li>
+                    </ul>
+                    <ul className='list-disc font-bold text-gray-800 mx-2 no-select'>
+                        <li>I am currentaly working with  <strong className='uppercase'>rD vision.tech</strong> Aug 2023 - Oct 2024</li>
                     </ul>
                     <ul className='list-disc font-bold text-gray-800 mx-2'>
                         <li>
-                            <Link to='https://cricktick.netlify.app ' target='_blank' rel='no' >View cricket related news and other also&nbsp; <span className='text-blue-800'>https://cricktick.netlify.app/</span> </Link>
+                            <Link to='https://uttamtravels.netlify.app/' target='_blank' rel='no' >Booking Cab application and manage Admin pannel. &nbsp; <span className='text-blue-800'>https://uttamtravels.netlify.app</span> </Link>
                         </li>
                     </ul>
 
