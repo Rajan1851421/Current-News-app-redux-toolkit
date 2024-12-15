@@ -42,7 +42,7 @@ function App() {
   return (
     <>
       {/* Navbar */}
-      <nav className="p-4 px-8  bg-[#525252] sticky top-0 z-50">
+      <nav className="p-4 px-8  bg-gradient-to-r from-cyan-700 to-blue-200 sticky top-0 z-50">
         <div className="container mx-auto flex justify-between items-center">
           {/* Logo */}
           <div className="flex items-center">
