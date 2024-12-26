@@ -1,4 +1,5 @@
 import React from 'react'
+import youtube  from '../assets/image/youtube.png'
 
 function Project() {
     return (
@@ -22,8 +23,8 @@ function Project() {
                             </a>
                             <a href="https://rajantube.netlify.app/" target="_blank" rel="noopener noreferrer">
                                 <img
-                                    src="https://res-console.cloudinary.com/ds8ttmj8w/thumbnails/v1/image/upload/v1732598709/QmxhY2tfWWVsbG93X01vZGVybl9Qcm9kdWN0X0luc3RhZ3JhbV9Qb3N0X3NvamhyYQ==/drilldown"
-                                    className="rounded-xl -rotate-12 hover:rotate-0 duration-500 hover:-translate-y-12 w-full h-48 object-cover hover:scale-105 transform origin-bottom"
+                                    src={youtube}
+                                    className="rounded-xl -rotate-12 hover:rotate-0 duration-500 hover:-translate-y-12 w-full h-auto object-cover hover:scale-105 transform origin-bottom"
                                     alt="Project 2"
                                 />
                             </a>

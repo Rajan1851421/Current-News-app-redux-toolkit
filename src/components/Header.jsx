@@ -46,8 +46,8 @@ function App() {
             <Link to='/'>
               <img
                 className="h-10 w-auto mr-2 rounded-full"
-                // src="https://avatars.githubusercontent.com/u/105105537?v=4"
-                src={logo}
+                src="https://avatars.githubusercontent.com/u/105105537?v=4" 
+                // src={logo}
                 alt="Logo"
               />
             </Link>
