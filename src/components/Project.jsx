@@ -9,14 +9,13 @@ import gyandeep from '../assets/image/gyandeep.png'
 
 function Project() {
     return (
-        < >
-            <div className=''>
+        <>
+            <div >
                 <div className="flex items-center justify-center w-full ">
                     <h2 className="text-center font-bold my-5 md:mt-8 text-lg md:text-4xl">
                         Our Projects
                     </h2>
                 </div>
-
                 <section class="overflow-hidden">
                     <div class="max-w-screen-xl 2xl:max-w-screen-3xl px-8 md:px-12 mx-auto py-20 lg:py-24 space-y-24 h-svh flex flex-col justify-center">
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mx-auto space-y-3">
