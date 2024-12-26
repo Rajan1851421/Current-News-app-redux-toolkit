@@ -2,10 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { FaFilePdf } from "react-icons/fa6";
-import { FcNews } from "react-icons/fc";
-import { BsFiletypeJson } from "react-icons/bs";
-import { FaFileWord } from "react-icons/fa";
+import logo from '../assets/image/logo.jpg'
 
 // import { SiGooglegemini } from "react-icons/si";
 
@@ -49,7 +46,8 @@ function App() {
             <Link to='/'>
               <img
                 className="h-10 w-auto mr-2 rounded-full"
-                src="https://avatars.githubusercontent.com/u/105105537?v=4"
+                // src="https://avatars.githubusercontent.com/u/105105537?v=4"
+                src={logo}
                 alt="Logo"
               />
             </Link>
