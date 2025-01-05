@@ -7,8 +7,8 @@ const TextWriter = () => {
       <h1 className='font-bold text-[20px]'>Hello, I'm a</h1>
       <ReactTyped
         className='text-red-700 font-bold text-[20px]'
-        strings={["Backend Developer", "Frontend Developer","Fullstack Developer"]}
-        typeSpeed={150}
+        strings={["Backend Developer", "Frontend Developer","Fullstack Developer","React Native Developer"]}
+        typeSpeed={50}
         backSpeed={100}
         loop={true}
       />
