@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import CardforSkills from './CardforSkills';
+import TextWriter from './TextRiter';
 
 function Portfolio() {
   const nameArray = ["R", "a", "j", "a", "n", "  ", "P", "r", "a", "j", "a", "p", "a", "t", "i"];
@@ -38,16 +39,17 @@ function Portfolio() {
                    hover:shadow-blue-400 hover:-tranneutral-y-px ">
                 View Resume
               </Link>
-            
+
 
             </div>
           </div>
           {/* second Part */}
           <div className="p-4">
             {/* Your content for the first part */}
-            <div className="text-center  h-16">
-              <h2 className="text-2xl md:text-4xl lg:text-4xl font-bold text-[#ea580c] uppercase">{currentElement}</h2>
-
+            <div className="text-center flex justify-start items-center  h-16">
+              {/* <h2 className="text-2xl md:text-4xl lg:text-4xl font-bold text-[#ea580c] uppercase">{currentElement}</h2> */}
+           
+              <TextWriter />
             </div>
             <h2 className="text-center text-sm text-blue-700 mb-4 capitalize sm:mb-3 font-bold ">Web Developer | Frontend Engineer | Backend Engineer</h2>
 
@@ -60,6 +62,7 @@ function Portfolio() {
                   <li className="text-[#92400E] font-medium ">CSS3</li>
                   <li className="text-[#9D174D] font-medium ">JavaScript</li>
                   <li className="font-medium text-[#1D4ED8] ">Node Js & Express Js</li>
+                  <li className="font-medium text-[#9d0208] ">Recat Native</li>
                 </ul>
               </div>
               <div className="p-2">

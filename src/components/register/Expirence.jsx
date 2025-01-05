@@ -6,7 +6,7 @@ function Expirence() {
         <>
             <div className="container bg-gradient-to-r from-indigo-400 p-5 rounded-md my-5">
                 <div className="grid grid-cols-1 md:grid-cols-1">
-                    <p className='mx-auto  md:text-7xl lg:text-7xl sm:text-4xl hover:skew-x-12 hover:duration-500 uppercase font-bold mb-5 '>
+                    <p className='mx-auto  md:text-7xl lg:text-3xl sm:text-xl hover:skew-x-12 hover:duration-500 uppercase font-bold mb-5 '>
                         experience
                     </p>
 
@@ -24,13 +24,14 @@ function Expirence() {
                     <ul className='list-disc font-bold text-gray-800 mx-2 no-select'>
                         <li>One Year experience in  <strong className='uppercase'>Crazy Soft Coder Pvt Ltd.</strong> Aug 2023 - Oct 2024</li>
                     </ul>
-                    <ul className='list-disc font-bold text-gray-800 mx-2 no-select'>
-                        <li>I am currentaly working with  <strong className='uppercase'>rD vision.tech</strong> Aug 2023 - Oct 2024</li>
-                    </ul>
+                   
                     <ul className='list-disc font-bold text-gray-800 mx-2'>
                         <li>
                             <Link to='https://uttamtravels.netlify.app/' target='_blank' rel='no' >Booking Cab application and manage Admin pannel. &nbsp; <span className='text-blue-800'>https://uttamtravels.netlify.app</span> </Link>
                         </li>
+                    </ul>
+                    <ul className='list-disc font-bold text-gray-800 mx-2 no-select'>
+                        <li>I am currentaly working with  <strong className='uppercase'>rD vision.tech</strong> <span className='bg-[#38b000] px-2 rounded-sm'>Aug 2024</span> To <span className='bg-[#c32f27] px-2 rounded-sm'>Till Now</span></li>
                     </ul>
 
                 </div>

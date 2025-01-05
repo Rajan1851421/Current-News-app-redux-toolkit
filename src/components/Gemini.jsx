@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { FaArrowUp } from "react-icons/fa6";
 import { LuLoader2 } from "react-icons/lu";
+import { FaRegCopy } from "react-icons/fa";
 import "../App";
 
 function Gemini() {
@@ -12,6 +13,7 @@ function Gemini() {
   const [status, setStatus] = useState("");
   const [error, setError] = useState("");
   const [displayedText, setDisplayedText] = useState("");
+  const [ copy , setCopy] = useState(false)
 
   useEffect(() => {
     setQuestion("");
@@ -62,6 +64,7 @@ function Gemini() {
       .then((response) => {
         setData(response.data.response);
         setLoading(false);
+        setQuestion("");
       })
       .catch((error) => {
         setError(error.message);
@@ -69,9 +72,28 @@ function Gemini() {
       });
   };
 
-  // Function to replace '**' with spaces
   const replaceAsterisks = (text) => {
     return text.replace(/\*\*/g, " ");
+  };
+
+  const copyToClipboard = (text) => {
+    navigator.clipboard.writeText(text);
+    setCopy(true)
+    setTimeout(()=>{
+      setCopy(false)
+    },5000)
+  };
+
+  const isCodeBlock = (text) => {
+    const htmlPattern = /<([a-z][\s\S]*?)>/i;
+    const cssPattern = /^(\/\*[\s\S]*?\*\/|[^{}]*\{[^}]*\})+$/;
+    const jsPattern = /function|var|let|const|console\.log|=>|return/;
+
+    return (
+      htmlPattern.test(text) ||
+      cssPattern.test(text) ||
+      jsPattern.test(text)
+    );
   };
 
   return (
@@ -88,11 +110,32 @@ function Gemini() {
               <div className="w-[75%] bg-[#27272A] rounded-md text-white p-4 h-[400px] overflow-y-auto">
                 {replaceAsterisks(displayedText)
                   .split("\n\n")
-                  .map((paragraph, index) => (
-                    <p key={index} className="mb-4 capitalize">
-                      {paragraph}
-                    </p>
-                  ))}
+                  .map((paragraph, index) => {
+                    if (isCodeBlock(paragraph)) {
+                      return (
+                        <div
+                          key={index}
+                          className="relative bg-gray-900 p-4 mb-4 rounded-lg border border-gray-700"
+                        >
+                          <pre className="overflow-x-auto text-sm text-green-400">
+                            <code>{paragraph}</code>
+                          </pre>
+                          <button
+                            onClick={() => copyToClipboard(paragraph)}
+                            className="absolute top-2 flex justify-center items-center gap-2 right-2 bg-gray-700 hover:bg-gray-600 text-white px-2 py-1 text-xs rounded"
+                          >
+                           {copy ? 'Copied' : <><FaRegCopy /> Copy</>}
+
+                          </button>
+                        </div>
+                      );
+                    }
+                    return (
+                      <p key={index} className="mb-4 capitalize">
+                        {paragraph}
+                      </p>
+                    );
+                  })}
               </div>
             </div>
           ) : (
@@ -117,7 +160,7 @@ function Gemini() {
               }}
               type="text"
               placeholder="Enter a prompt here"
-              className="flex-grow bg-transparent text-white placeholder-gray-400 px-4 border-none focus:outline-none"
+              className="flex-grow w-1-2 bg-transparent text-white placeholder-gray-400 px-4 border-none focus:outline-none"
             />
             {loading ? (
               <LuLoader2 className="text-gray-400 mx-2 p-2 cursor-pointer text-4xl animate-spin" />

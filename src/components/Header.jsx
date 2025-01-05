@@ -59,7 +59,7 @@ function App() {
               />
             </span>
             {/* github */}
-            <span className="ml-8 font-normal p-3 text-gray-400 ">
+            <span className="ml-8 font-normal p-3 text-gray-800 text-nowrap	 ">
               {currentDateTime.toLocaleString()}
             </span>
             <Link
@@ -90,9 +90,9 @@ function App() {
             </Link>
             <Link
               to="/gemini"
-              className="font-bold hover:text-white hover:border-b "
+              className="font-bold hover:text-white hover:border-b flex justify-center items-center gap-2 "
             >
-              <i class="fa-regular fa-star  text-[yellow] mx-1 "></i>
+              <img className="h-5" src="https://cdn-icons-png.flaticon.com/128/5278/5278402.png" alt="" />
               Gemini
             </Link>
 

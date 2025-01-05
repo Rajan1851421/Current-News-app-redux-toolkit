@@ -26,6 +26,7 @@ function CardforSkills() {
             
             textColor: "text-purple-500",
         },
+      
     ];
 
     return (
