@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom'
 function Expirence() {
     return (
         <>
-            <div className="container bg-gradient-to-r from-indigo-400 p-5 rounded-md my-5">
+            <div className="mx-4 border border-gray-400 p-5 rounded-md my-5 shadow-md">
                 <div className="grid grid-cols-1 md:grid-cols-1">
                     <p className='mx-auto  md:text-7xl lg:text-3xl sm:text-xl hover:skew-x-12 hover:duration-500 uppercase font-bold mb-5 '>
                         experience
                     </p>
 
-                    <hr />
+                   
                     <span className='text-2xl font-bold '>INTERNSHIP</span>
                     <ul className='list-disc font-bold text-gray-800 mx-2'>
                         <li>

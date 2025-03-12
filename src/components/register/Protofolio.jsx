@@ -26,17 +26,14 @@ function Portfolio() {
   }, [currentIndex]);
   return (
     <>
-      <div className="container mx-auto p-4 bg-[#eeeef0] my-3 rounded-lg">
+      <div className=" mx-4 p-4 bg-[#eeeef0] my-3 rounded-lg">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="p-4 flex flex-col ">
             {/* Your content for the frist part */}
             <img className="rounded-full h-[200px] w-[200px]  md:h-[350px] md:w-[350px] mx-auto shadow-lg " src="https://avatars.githubusercontent.com/u/105105537?v=4" alt="" />
             <div className="flex flex-col items-center justify-center gap-5 mt-6 md:flex-row">
               <Link target="_blank" to="https://drive.google.com/file/d/1QDKRSPx20xxDeMwMIjzV3s5zrAxbggav/view?usp=sharing"
-                className="inline-block text-center  w-1/2 md:w-[100px] backdrop: md:min-w-[200px] px-2 py-1 md:px-6 md:py-4
-                 text-white transition-all rounded-md shadow-md sm:w-auto bg-gradient-to-r from-blue-600
-                  to-blue-500 hover:bg-gradient-to-b dark:shadow-blue-900 shadow-blue-200 hover:shadow-2xl
-                   hover:shadow-blue-400 hover:-tranneutral-y-px ">
+                className="bg-[#00a5cf] px-4 py-2 text-white hover:bg-[#277da1] duration-200 rounded-md ">
                 View Resume
               </Link>
 
@@ -55,7 +52,7 @@ function Portfolio() {
 
 
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4">Skills</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-[#C4B5FD] p-2 rounded-md  ">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-[#e0ddec] p-2 rounded-md  ">
               <div className="p-2">
                 <ul className="list-disc list-inside">
                   <li className="text-[#1D4ED8] font-medium ">HTML5</li>
@@ -75,7 +72,7 @@ function Portfolio() {
               </div>
             </div>
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4">Contact</h2>
-            <div className='bg-[#94A3B8] p-2 rounded-md'>
+            <div className='bg-[#cbced188] p-2 rounded-md'>
               <span className="text-red-600">
                 <i className="fa-regular fa-envelope fa-beat"></i>{' '}
               </span>

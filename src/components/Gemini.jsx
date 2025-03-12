@@ -98,7 +98,7 @@ function Gemini() {
 
   return (
     <>
-      <div className="bg-[#1C1917] mt-[-20px] fixed top-0 left-0 w-full h-screen">
+      <div className=" mt-[-20px] fixed top-0 left-0 w-full h-screen">
         <div className="flex flex-col justify-center mx-2 md:mx-10 mt-1 md:mt-5 h-screen">
           {data ? (
             <div className="flex flex-col justify-center items-center">

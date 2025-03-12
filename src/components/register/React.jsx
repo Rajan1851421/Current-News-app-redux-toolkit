@@ -3,9 +3,9 @@ import React from 'react'
 function OtherKnow() {
     return (
         <>
-            <div className="flex flex-col lg:flex-row mx-7 my-5">               
+            <div className="flex flex-col lg:flex-row  my-5">               
                 {/* Content on the left side */}
-                <div className="w-full lg:w-2/3  container bg-gradient-to-r from-indigo-400 p-5 rounded-md">
+                <div className="w-full   mx-4 border border-gray-400 p-5 rounded-md">
                     <h2 className="text-2xl font-semibold mb-2">React Js</h2>
                     <div className="lg:hidden w-full mb-4">
                     <img
