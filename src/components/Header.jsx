@@ -42,12 +42,13 @@ function App() {
 
         {/* Desktop Links */}
         <div className="hidden md:flex space-x-5">
-          <Link to="/" className="font-bold hover:text-white">Home</Link>
-          <Link to="/editor" className="font-bold hover:text-white">Editor</Link>
-          <Link to="/project" className="font-bold hover:text-white">Project</Link>
-          <Link to="/game" className="font-bold hover:text-white">Game</Link>
-          <Link to="/shopping" className="font-bold hover:text-white">Shopping</Link>
-          <Link to="/register" className="font-bold hover:text-white relative">
+          <Link to="/" className="font-normal hover:text-white">Home</Link>
+          <Link to="/editor" className="font-normal hover:text-white">Editor</Link>
+          <Link to="/project" className="font-normal hover:text-white">Project</Link>
+          <Link to="/game" className="font-normal hover:text-white">Game</Link>
+          <Link to="/calculator" className="font-normal hover:text-white">Calculator</Link>         
+          <Link to="/shopping" className="font-normal hover:text-white">Shopping</Link>
+          <Link to="/register" className="font-normal hover:text-white relative">
             Register
             <span className="absolute top-0 right-0 inline-flex items-center py-0.5 px-1.5 rounded-full text-xs font-medium bg-red-500 text-white">
               {Allusers.length}
@@ -92,6 +93,7 @@ function App() {
           <Link to="/" onClick={closeDrawer} className="block py-2 border-b">Home</Link>
           <Link to="/editor" onClick={closeDrawer} className="block py-2 border-b">Editor</Link>
           <Link to="/game" onClick={closeDrawer} className="block py-2 border-b">Game</Link>
+          <Link to="/calculator" onClick={closeDrawer} className="block py-2 border-b">Calculator</Link>
           <Link to="/project" onClick={closeDrawer} className="block py-2 border-b">Project</Link>
           <Link to="/shopping" onClick={closeDrawer} className="block py-2 border-b">Shopping</Link>
           <Link to="/register" onClick={closeDrawer} className="block py-2 border-b">

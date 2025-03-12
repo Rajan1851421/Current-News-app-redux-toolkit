@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function Calculator() {
     window.scrollTo(0, 0)
@@ -41,7 +42,7 @@ function Calculator() {
 
 
     return (
-        <div className='py-6 flex items-center justify-center'>
+        <div className='py-6 flex flex-col items-center justify-center h-screen'>
             <div className="body bg-gray-400 p-6 rounded-sm ">
                 <input type="text" value={number} readOnly
                     className='bg-green-200 w-full h-14 rounded-sm py-2 text-right font-bold text-2xl '
@@ -134,9 +135,10 @@ function Calculator() {
                     >/</button>
 
                 </div>
-
-
             </div>
+            <Link className='text-blue-500 underline mt-4 text-start' to='/ageCalculator'>Age Calculator</Link>
+
+
         </div>
     );
 }
