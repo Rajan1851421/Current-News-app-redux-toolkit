@@ -3,7 +3,7 @@ import React from 'react'
 function OtherKnow() {
     return (
         <>
-            <div className="flex flex-col lg:flex-row  my-5">               
+            <div className="flex flex-col lg:flex-row  my-5 w-full">               
                 {/* Content on the left side */}
                 <div className="w-full   mx-4 border border-gray-400 p-5 rounded-md">
                     <h2 className="text-2xl font-semibold mb-2">React Js</h2>

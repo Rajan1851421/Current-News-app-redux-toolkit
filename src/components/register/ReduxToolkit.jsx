@@ -3,7 +3,7 @@ import React from 'react'
 function ReduxToolkit() {
     return (
         <>
-            <div className="flex flex-col lg:flex-row mx-7 my-3">
+            <div className="flex flex-col lg:flex-row md:mx-7 my-3 mx-3 w-full">
                 <div className="hidden lg:block w-1/3">
                     <img
                         className="object-cover w-full h-full rounded-l "

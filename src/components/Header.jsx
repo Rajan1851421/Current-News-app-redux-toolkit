@@ -26,9 +26,9 @@ function App() {
         {/* Logo Section */}
         <div className="flex items-center space-x-4">
           <Link to="/">
-            <img className="h-10 w-auto rounded-full" src={logo} alt="Logo" />
+            <img className="h-10 w-10 rounded-full" src={logo} alt="Logo" />
           </Link>
-          <span className="text-lg font-semibold">
+          <span className="text-lg font-semibold hidden md:block">
             <img
               className="h-10 w-auto"
               src="https://img.icons8.com/?size=80&id=0hL1XXinNxFc&format=png"
@@ -38,6 +38,9 @@ function App() {
           <span className="ml-8 text-sm md:text-base text-gray-800">
             {currentDateTime.toLocaleString()}
           </span>
+          <Link to='https://github.com/Rajan1851421' target='_blank' rel="noopener noreferrer"><i className="fab fa-github"></i></Link>
+          <Link className="text-blue-500" to='https://www.linkedin.com/in/rajan-prajapati-717337192/' target='_blank' rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></Link>
+
         </div>
 
         {/* Desktop Links */}
