@@ -15,7 +15,6 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.0.1",
     "axios": "^1.6.2",
-    "caniuse-lite": "^1.0.30001655",
     "font-awesome": "^4.7.0",
     "lottie-react": "^2.4.0",
     "moment": "^2.30.1",
