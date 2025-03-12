@@ -12,7 +12,7 @@ function Footer() {
     return (
         <>
 
-            <footer className="absolute bg-[#34d399] pt-8 pb-6 -z-10 w-full">
+            <footer className="absolute bg-[#dbdbdb] pt-8 pb-6 -z-10 w-full">
              
                 <div className="container mx-auto px-4">
                     <div className="flex flex-wrap text-left lg:text-left">
