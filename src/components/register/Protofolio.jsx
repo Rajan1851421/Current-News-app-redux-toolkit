@@ -33,7 +33,7 @@ function Portfolio() {
             <img className="rounded-full h-[200px] w-[200px]  md:h-[350px] md:w-[350px] mx-auto shadow-lg " src="https://avatars.githubusercontent.com/u/105105537?v=4" alt="" />
             <div className="flex flex-col items-center justify-center gap-5 mt-6 md:flex-row">
               <Link target="_blank" to="https://drive.google.com/file/d/1QDKRSPx20xxDeMwMIjzV3s5zrAxbggav/view?usp=sharing"
-                className="bg-[#00a5cf] px-2 py-1 text-white hover:bg-[#277da1] duration-200 rounded-md ">
+                className="bg-[#00a5cf] px-4 py-2 text-white hover:bg-[#277da1] duration-200 rounded-md ">
                 View Resume
               </Link>
 
