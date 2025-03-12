@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import AgeCalModal from './AgeCalModal';
+import { Link } from 'react-router-dom';
 
 function AgeCalculator() {
     window.scrollTo(0,0)
@@ -45,7 +46,7 @@ function AgeCalculator() {
     };
 
     return (
-        <div className='flex items-center justify-center md:py-20 lg:py-20 '>
+        <div className='flex items-center justify-center md:py-20 lg:py-20 py-5 flex-col h-screen'>
             <div className='py-6 px-10 shadow-lg md:w-96 lg:w-96 sm:w-full bg-rose-300 rounded-lg'>
             {result.years !== null && (
                     <div className='text-center mt-4 font-semibold shadow-lg py-3 bg-[#9AE6B4]'>
@@ -94,6 +95,7 @@ function AgeCalculator() {
                     <AgeCalModal result={result} onClose={closeModal} />
                 )} */}
             </div>
+            <Link className='text-start text-blue-500 mt-4 underline' to='/calculator'>Calculator</Link>
         </div>
     );
 }
